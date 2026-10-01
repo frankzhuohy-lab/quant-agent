@@ -1,0 +1,112 @@
+{
+ "generated": "2026-09-25",
+ "rules": [
+  "not_strong",
+  "yday_down",
+  "gap_down",
+  "tailwind"
+ ],
+ "folds": [
+  {
+   "rule": null,
+   "test": [
+    "20260605",
+    "20260724"
+   ],
+   "train": [
+    {
+     "rule": "not_strong",
+     "n": 414,
+     "mean": -0.002133383107257115,
+     "sharpe": -2.8470691763143465,
+     "selectable": false
+    },
+    {
+     "rule": "yday_down",
+     "n": 247,
+     "mean": -0.0011085951491100947,
+     "sharpe": -2.920101284216908,
+     "selectable": false
+    },
+    {
+     "rule": "gap_down",
+     "n": 90,
+     "mean": -0.002463735175148948,
+     "sharpe": -1.708976315533178,
+     "selectable": false
+    },
+    {
+     "rule": "tailwind",
+     "n": 115,
+     "mean": -0.004023362917978194,
+     "sharpe": -3.383846491554931,
+     "selectable": false
+    }
+   ],
+   "oos_n": null,
+   "oos_mean": null,
+   "always_n": null,
+   "always_mean": null
+  },
+  {
+   "rule": null,
+   "test": [
+    "20260803",
+    "20260911"
+   ],
+   "train": [
+    {
+     "rule": "not_strong",
+     "n": 752,
+     "mean": -0.003045492780398806,
+     "sharpe": -4.92808483647098,
+     "selectable": false
+    },
+    {
+     "rule": "yday_down",
+     "n": 452,
+     "mean": -0.0013873505514531376,
+     "sharpe": -0.759408783400523,
+     "selectable": false
+    },
+    {
+     "rule": "gap_down",
+     "n": 233,
+     "mean": -0.0029647326807619254,
+     "sharpe": -1.2588888375851566,
+     "selectable": false
+    },
+    {
+     "rule": "tailwind",
+     "n": 187,
+     "mean": -0.005147445197711972,
+     "sharpe": -4.072682699200348,
+     "selectable": false
+    }
+   ],
+   "oos_n": null,
+   "oos_mean": null,
+   "always_n": null,
+   "always_mean": null
+  }
+ ],
+ "strategy_gate": {
+  "status": "pending",
+  "reasons": [
+   "没有两折都选中的时机"
+  ],
+  "n_trades": 0,
+  "sharpe_ann": null,
+  "max_drawdown": null,
+  "published": false
+ },
+ "diff_gate": {
+  "status": "pending",
+  "reasons": [
+   "无日差"
+  ],
+  "published": false
+ },
+ "adopt": false,
+ "chosen": null
+}

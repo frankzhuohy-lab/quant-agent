@@ -1,0 +1,9 @@
+{
+  "hypothesis": "EXP_0002 复现：仅指数上涨趋势开新仓（趋势门控），预期 OOS 回撤减半而 Sharpe 不降",
+  "change_scope": "regime_gate",
+  "allowed_patch": {"regime_gate": true},
+  "expected_effect": "震荡/下跌趋势空仓 → OOS 最大回撤 -23.7%→约-12.6%，Sharpe 不降",
+  "failure_conditions": ["OOS Sharpe 低于基线", "回撤劣化超过 2pp", "成本×2 压力下 Sharpe<1.0"],
+  "required_tests": ["rolling_validation", "cost_stress"],
+  "evidence_path": "qsys/experiments/EXPERIMENTS.md EXP_0002 (ACCEPT, 人工裁决 2026-09-30)"
+}

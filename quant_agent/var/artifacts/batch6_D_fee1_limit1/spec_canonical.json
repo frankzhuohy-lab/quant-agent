@@ -1,0 +1,19 @@
+{
+ "K": 3,
+ "_approved_functions": [
+  "filt",
+  "score"
+ ],
+ "allow_fewer": true,
+ "execution": "cash",
+ "exposure_cap": null,
+ "filt": "R316_FLR",
+ "params": {
+  "keltner_mult": 1.5,
+  "max_hold": 10
+ },
+ "regime_gate": false,
+ "score": "score_r117_upvar",
+ "universe": "pit_universe@31d677be",
+ "weight_mode": "equal"
+}

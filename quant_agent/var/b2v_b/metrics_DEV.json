@@ -1,0 +1,39 @@
+{
+ "meta": {
+  "costs": {
+   "buy": 0.002,
+   "sell": 0.0025
+  },
+  "generated": "2026-09-30T21:05:48",
+  "spec": {
+   "K": 3,
+   "allow_fewer": true,
+   "exposure_cap": null,
+   "params": {
+    "keltner_mult": 1.5,
+    "max_hold": 10
+   },
+   "regime_gate": false,
+   "weight_mode": "equal"
+  },
+  "window": "DEV",
+  "window_end": "2025-12-31",
+  "window_start": "2025-07-01"
+ },
+ "metrics": {
+  "annual_return": 2.3905,
+  "avg_exposure": 1.205,
+  "avg_holding_days": 9.6,
+  "calmar": 11.051,
+  "max_drawdown": -0.2163,
+  "n_trades": 192,
+  "payoff_ratio": 1.576,
+  "positive_days": 0.4524,
+  "sharpe": 2.754,
+  "sortino": 5.517,
+  "total_cost": 0.063,
+  "total_return": 0.8413,
+  "turnover_x": 0.21,
+  "win_rate": 0.7083
+ }
+}

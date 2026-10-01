@@ -1,0 +1,121 @@
+{
+ "hyp_id": "H4_h1h2_combo",
+ "title": "部署候选 = H2 趋势门控 + H1 敞口上限 100%",
+ "change": "组合两个已单测的结构性改动",
+ "one_variable": "组合实验（成分各自单变量已验证）",
+ "rationale": "EXP_0001 证明 H1 大幅改善 IS、EXP_0002 证明 H2 回撤减半；组合检验去杠杆+趋势过滤的部署形态",
+ "score_v_r_rob": [
+  4,
+  5,
+  4
+ ],
+ "note": "",
+ "ts": "2026-09-30T18:16:27.128191",
+ "baseline": {
+  "IS": {
+   "n_trades": 347,
+   "total_return": -0.3253,
+   "annual_return": -0.2026,
+   "sharpe": -0.45,
+   "sortino": -0.684,
+   "max_drawdown": -0.4153,
+   "calmar": -0.488,
+   "win_rate": 0.3862,
+   "payoff_ratio": 1.269,
+   "avg_holding_days": 8.95,
+   "turnover_x": 0.22,
+   "avg_exposure": 0.935,
+   "total_cost": 0.1332,
+   "positive_days": 0.3105
+  },
+  "OOS": {
+   "n_trades": 203,
+   "total_return": 2.8685,
+   "annual_return": 2.2013,
+   "sharpe": 2.447,
+   "sortino": 5.475,
+   "max_drawdown": -0.2373,
+   "calmar": 9.278,
+   "win_rate": 0.8079,
+   "payoff_ratio": 2.168,
+   "avg_holding_days": 9.74,
+   "turnover_x": 0.21,
+   "avg_exposure": 1.049,
+   "total_cost": 0.072,
+   "positive_days": 0.2628
+  }
+ },
+ "variant": {
+  "IS": {
+   "n_trades": 119,
+   "total_return": -0.1643,
+   "annual_return": -0.0981,
+   "sharpe": -0.588,
+   "sortino": -0.842,
+   "max_drawdown": -0.2424,
+   "calmar": -0.405,
+   "win_rate": 0.3277,
+   "payoff_ratio": 0.951,
+   "avg_holding_days": 9.0,
+   "turnover_x": 0.22,
+   "avg_exposure": 0.552,
+   "total_cost": 0.045,
+   "positive_days": 0.1735
+  },
+  "OOS": {
+   "n_trades": 88,
+   "total_return": 0.8151,
+   "annual_return": 0.6698,
+   "sharpe": 1.836,
+   "sortino": 3.564,
+   "max_drawdown": -0.1045,
+   "calmar": 6.412,
+   "win_rate": 0.8068,
+   "payoff_ratio": 2.395,
+   "avg_holding_days": 9.9,
+   "turnover_x": 0.2,
+   "avg_exposure": 0.683,
+   "total_cost": 0.0333,
+   "positive_days": 0.1843
+  }
+ },
+ "stress": {
+  "oos_cost_x2": {
+   "n_trades": 88,
+   "total_return": 0.7557,
+   "annual_return": 0.6227,
+   "sharpe": 1.742,
+   "sortino": 3.342,
+   "max_drawdown": -0.1098,
+   "calmar": 5.671,
+   "win_rate": 0.7955,
+   "payoff_ratio": 2.299,
+   "avg_holding_days": 9.9,
+   "turnover_x": 0.2,
+   "avg_exposure": 0.683,
+   "total_cost": 0.0666,
+   "positive_days": 0.1809
+  },
+  "oos_cap100": {
+   "n_trades": 88,
+   "total_return": 0.8151,
+   "annual_return": 0.6698,
+   "sharpe": 1.836,
+   "sortino": 3.564,
+   "max_drawdown": -0.1045,
+   "calmar": 6.412,
+   "win_rate": 0.8068,
+   "payoff_ratio": 2.395,
+   "avg_holding_days": 9.9,
+   "turnover_x": 0.2,
+   "avg_exposure": 0.683,
+   "total_cost": 0.0333,
+   "positive_days": 0.1843
+  }
+ },
+ "decision": "ACCEPT",
+ "reason": "部署形态：H2+H1组合是唯一符合真实资金约束(敞口<=100%)的版本；OOS年化67%/回撤-10.5%/Calmar 6.4，成本x2压力下Sharpe 1.74仍稳健；IS亏损同步减半",
+ "_auto_hint": "OOS 收益腰斩 → 倾向 REJECT",
+ "seq": 3,
+ "id": "EXP_0003"
+}

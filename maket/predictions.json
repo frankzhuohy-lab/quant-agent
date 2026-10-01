@@ -1,0 +1,1754 @@
+[
+ {
+  "id": "20260917-1",
+  "target_date": "2026-09-17",
+  "symbol": "sz300765",
+  "name": "石药创新",
+  "P1": "UP",
+  "P2": "YES",
+  "P3": "YES",
+  "rationale": "3日箱体43.1-43.9, prev_ret 0%未过热, 近5日4次触线后回归, 20日趋势强; 信心高",
+  "date_made": "2026-09-17T08:15",
+  "status": "scored",
+  "score_result": {
+   "pred_id": "20260917-1",
+   "name": "石药创新",
+   "date": "2026-09-17",
+   "actual_chg": 0.25,
+   "line_touched": true,
+   "target_hit": true,
+   "score": {
+    "P1": {
+     "pred": "UP",
+     "actual": "FLAT",
+     "verdict": "不计分"
+    },
+    "P2": {
+     "pred": "YES",
+     "actual": true,
+     "verdict": "对"
+    },
+    "P3": {
+     "pred": "YES",
+     "actual": true,
+     "verdict": "对"
+    }
+   }
+  }
+ },
+ {
+  "id": "20260917-2",
+  "target_date": "2026-09-17",
+  "symbol": "sz002531",
+  "name": "天顺风能",
+  "P1": "UP",
+  "P2": "YES",
+  "P3": "YES",
+  "rationale": "筛选分82.7全场最高, 20日+28.6%强趋势, 距20日高-9.0%回撤到位, ATR4.4%适中; 信心高",
+  "date_made": "2026-09-17T08:15",
+  "status": "scored",
+  "score_result": {
+   "pred_id": "20260917-2",
+   "name": "天顺风能",
+   "date": "2026-09-17",
+   "actual_chg": 4.48,
+   "line_touched": true,
+   "target_hit": true,
+   "score": {
+    "P1": {
+     "pred": "UP",
+     "actual": "UP",
+     "verdict": "对"
+    },
+    "P2": {
+     "pred": "YES",
+     "actual": true,
+     "verdict": "对"
+    },
+    "P3": {
+     "pred": "YES",
+     "actual": true,
+     "verdict": "对"
+    }
+   }
+  }
+ },
+ {
+  "id": "20260917-3",
+  "target_date": "2026-09-17",
+  "symbol": "sz300757",
+  "name": "罗博特科",
+  "P1": "UP",
+  "P2": "NO",
+  "rationale": "昨日+1.96%反弹动能, 高开则低吸线远离, 触线概率低; 信心中",
+  "date_made": "2026-09-17T08:15",
+  "status": "scored",
+  "score_result": {
+   "pred_id": "20260917-3",
+   "name": "罗博特科",
+   "date": "2026-09-17",
+   "actual_chg": -0.82,
+   "line_touched": true,
+   "target_hit": true,
+   "score": {
+    "P1": {
+     "pred": "UP",
+     "actual": "DOWN",
+     "verdict": "错"
+    },
+    "P2": {
+     "pred": "NO",
+     "actual": true,
+     "verdict": "错"
+    }
+   }
+  }
+ },
+ {
+  "id": "20260917-4",
+  "target_date": "2026-09-17",
+  "symbol": "sh600150",
+  "name": "中国船舶",
+  "P1": "DOWN",
+  "P2": "YES",
+  "P3": "NO",
+  "rationale": "3连阴-4.9%下跌中继, 筛选器误判风险敞口; 触线大概率, 反弹到目标概率低; 昨日已止损一次; 信心中",
+  "date_made": "2026-09-17T08:15",
+  "status": "scored",
+  "score_result": {
+   "pred_id": "20260917-4",
+   "name": "中国船舶",
+   "date": "2026-09-17",
+   "actual_chg": 3.1,
+   "line_touched": true,
+   "target_hit": true,
+   "score": {
+    "P1": {
+     "pred": "DOWN",
+     "actual": "UP",
+     "verdict": "错"
+    },
+    "P2": {
+     "pred": "YES",
+     "actual": true,
+     "verdict": "对"
+    },
+    "P3": {
+     "pred": "NO",
+     "actual": true,
+     "verdict": "错"
+    }
+   }
+  }
+ },
+ {
+  "id": "20260917-5",
+  "target_date": "2026-09-17",
+  "symbol": "sz002585",
+  "name": "双星新材",
+  "P1": "UP",
+  "P2": "YES",
+  "P3": "YES",
+  "rationale": "20日+24.6%趋势强, 回撤仅-3.8%位置高但支撑近, ATR4.4%; 信心中",
+  "date_made": "2026-09-17T08:15",
+  "status": "scored",
+  "score_result": {
+   "pred_id": "20260917-5",
+   "name": "双星新材",
+   "date": "2026-09-17",
+   "actual_chg": -3.94,
+   "line_touched": true,
+   "target_hit": true,
+   "score": {
+    "P1": {
+     "pred": "UP",
+     "actual": "DOWN",
+     "verdict": "错"
+    },
+    "P2": {
+     "pred": "YES",
+     "actual": true,
+     "verdict": "对"
+    },
+    "P3": {
+     "pred": "YES",
+     "actual": true,
+     "verdict": "对"
+    }
+   }
+  }
+ },
+ {
+  "id": "20260918-1",
+  "target_date": "2026-09-18",
+  "symbol": "sz300765",
+  "name": "石药创新",
+  "P1": "UP",
+  "P2": "YES",
+  "P3": "YES",
+  "rationale": "42.5-43.9箱体3日收敛, 近5日5/5触线; 但vs_ma20 -2.5%、ret20 -16.4%趋势背景弱(常驻票无条件交易), 方向信心低",
+  "date_made": "2026-09-17T15:13",
+  "status": "scored",
+  "score_result": {
+   "pred_id": "20260918-1",
+   "name": "石药创新",
+   "date": "2026-09-18",
+   "actual_chg": 1.41,
+   "line_touched": true,
+   "target_hit": true,
+   "score": {
+    "P1": {
+     "pred": "UP",
+     "actual": "UP",
+     "verdict": "对"
+    },
+    "P2": {
+     "pred": "YES",
+     "actual": true,
+     "verdict": "对"
+    },
+    "P3": {
+     "pred": "YES",
+     "actual": true,
+     "verdict": "对"
+    }
+   }
+  }
+ },
+ {
+  "id": "20260918-2",
+  "target_date": "2026-09-18",
+  "symbol": "sh603083",
+  "name": "剑桥科技",
+  "P1": "UP",
+  "P2": "YES",
+  "P3": "YES",
+  "rationale": "MA20乖离+8.9%、ret20+22.4%上行趋势, prev_ret -2.06%回踩日, ATR6.4%高波动, 近5日5/5触线2达标",
+  "date_made": "2026-09-17T15:13",
+  "status": "scored",
+  "score_result": {
+   "pred_id": "20260918-2",
+   "name": "剑桥科技",
+   "date": "2026-09-18",
+   "actual_chg": 4.09,
+   "line_touched": true,
+   "target_hit": true,
+   "score": {
+    "P1": {
+     "pred": "UP",
+     "actual": "UP",
+     "verdict": "对"
+    },
+    "P2": {
+     "pred": "YES",
+     "actual": true,
+     "verdict": "对"
+    },
+    "P3": {
+     "pred": "YES",
+     "actual": true,
+     "verdict": "对"
+    }
+   }
+  }
+ },
+ {
+  "id": "20260918-3",
+  "target_date": "2026-09-18",
+  "symbol": "sz000823",
+  "name": "超声电子",
+  "P1": "UP",
+  "P2": "YES",
+  "P3": "YES",
+  "rationale": "ret20+64.9%抛物线趋势, 5/5触线; 警示: 乖离极大随时急回归, prev_ret -3.58%已是回落首日; 信心低",
+  "date_made": "2026-09-17T15:13",
+  "status": "scored",
+  "score_result": {
+   "pred_id": "20260918-3",
+   "name": "超声电子",
+   "date": "2026-09-18",
+   "actual_chg": -3.47,
+   "line_touched": true,
+   "target_hit": true,
+   "score": {
+    "P1": {
+     "pred": "UP",
+     "actual": "DOWN",
+     "verdict": "错"
+    },
+    "P2": {
+     "pred": "YES",
+     "actual": true,
+     "verdict": "对"
+    },
+    "P3": {
+     "pred": "YES",
+     "actual": true,
+     "verdict": "对"
+    }
+   }
+  }
+ },
+ {
+  "id": "20260918-4",
+  "target_date": "2026-09-18",
+  "symbol": "sh600176",
+  "name": "中国巨石",
+  "P1": "UP",
+  "P2": "YES",
+  "P3": "YES",
+  "rationale": "MA20乖离+9.4%、ret20+13.8%稳健上行, 5/5触线, prev_ret -0.51%健康回踩; 信心中",
+  "date_made": "2026-09-17T15:13",
+  "status": "scored",
+  "score_result": {
+   "pred_id": "20260918-4",
+   "name": "中国巨石",
+   "date": "2026-09-18",
+   "actual_chg": -4.52,
+   "line_touched": true,
+   "target_hit": true,
+   "score": {
+    "P1": {
+     "pred": "UP",
+     "actual": "DOWN",
+     "verdict": "错"
+    },
+    "P2": {
+     "pred": "YES",
+     "actual": true,
+     "verdict": "对"
+    },
+    "P3": {
+     "pred": "YES",
+     "actual": true,
+     "verdict": "对"
+    }
+   }
+  }
+ },
+ {
+  "id": "20260918-5",
+  "target_date": "2026-09-18",
+  "symbol": "sh601869",
+  "name": "长飞光纤",
+  "P1": "UP",
+  "P2": "YES",
+  "P3": "YES",
+  "rationale": "ret20+30.6%强趋势, 近5日3达标, prev_ret +1.31%未过热; 信心中高",
+  "date_made": "2026-09-17T15:13",
+  "status": "scored",
+  "score_result": {
+   "pred_id": "20260918-5",
+   "name": "长飞光纤",
+   "date": "2026-09-18",
+   "actual_chg": -2.58,
+   "line_touched": true,
+   "target_hit": false,
+   "score": {
+    "P1": {
+     "pred": "UP",
+     "actual": "DOWN",
+     "verdict": "错"
+    },
+    "P2": {
+     "pred": "YES",
+     "actual": true,
+     "verdict": "对"
+    },
+    "P3": {
+     "pred": "YES",
+     "actual": false,
+     "verdict": "错"
+    }
+   }
+  }
+ },
+ {
+  "id": "20260921-1",
+  "target_date": "2026-09-21",
+  "symbol": "sz300765",
+  "name": "石药创新",
+  "P1": "UP",
+  "P2": "YES",
+  "P3": "YES",
+  "rationale": "收复MA20仅差0.5%, 近5日5/5触线4达标, 箱体43.1-43.9上移; 信心中",
+  "date_made": "2026-09-18T15:16",
+  "status": "scored",
+  "score_result": {
+   "pred_id": "20260921-1",
+   "name": "石药创新",
+   "date": "2026-09-21",
+   "actual_chg": 5.72,
+   "line_touched": false,
+   "target_hit": true,
+   "score": {
+    "P1": {
+     "pred": "UP",
+     "actual": "UP",
+     "verdict": "对"
+    },
+    "P2": {
+     "pred": "YES",
+     "actual": false,
+     "verdict": "错"
+    },
+    "P3": {
+     "verdict": "未触发不计分"
+    }
+   }
+  }
+ },
+ {
+  "id": "20260921-2",
+  "target_date": "2026-09-21",
+  "symbol": "sz002815",
+  "name": "崇达技术",
+  "P1": "DOWN",
+  "P2": "YES",
+  "P3": "NO",
+  "rationale": "超声电子同款风险: ret20+69%抛物线+乖离35.6%+昨日-1.56%回落首日→继续回归; 信心低(逆向判断, 唯一依据是超声样本)",
+  "date_made": "2026-09-18T15:16",
+  "status": "scored",
+  "score_result": {
+   "pred_id": "20260921-2",
+   "name": "崇达技术",
+   "date": "2026-09-21",
+   "actual_chg": 2.05,
+   "line_touched": true,
+   "target_hit": true,
+   "score": {
+    "P1": {
+     "pred": "DOWN",
+     "actual": "UP",
+     "verdict": "错"
+    },
+    "P2": {
+     "pred": "YES",
+     "actual": true,
+     "verdict": "对"
+    },
+    "P3": {
+     "pred": "NO",
+     "actual": true,
+     "verdict": "错"
+    }
+   }
+  }
+ },
+ {
+  "id": "20260921-3",
+  "target_date": "2026-09-21",
+  "symbol": "sh600150",
+  "name": "中国船舶",
+  "P1": "UP",
+  "P2": "YES",
+  "P3": "YES",
+  "rationale": "昨日+1.31%反弹确认, 站回MA20上7.2%, 近5日5/5触线; C1第3样本观察对象; 信心中",
+  "date_made": "2026-09-18T15:16",
+  "status": "scored",
+  "score_result": {
+   "pred_id": "20260921-3",
+   "name": "中国船舶",
+   "date": "2026-09-21",
+   "actual_chg": 3.93,
+   "line_touched": true,
+   "target_hit": true,
+   "score": {
+    "P1": {
+     "pred": "UP",
+     "actual": "UP",
+     "verdict": "对"
+    },
+    "P2": {
+     "pred": "YES",
+     "actual": true,
+     "verdict": "对"
+    },
+    "P3": {
+     "pred": "YES",
+     "actual": true,
+     "verdict": "对"
+    }
+   }
+  }
+ },
+ {
+  "id": "20260921-4",
+  "target_date": "2026-09-21",
+  "symbol": "sh600410",
+  "name": "华胜天成",
+  "P1": "UP",
+  "P2": "YES",
+  "P3": "YES",
+  "rationale": "ret20+21.8%上行, 乖离13%健康, prev_ret+1.47%未过热, 5/5触线; 信心中",
+  "date_made": "2026-09-18T15:16",
+  "status": "scored",
+  "score_result": {
+   "pred_id": "20260921-4",
+   "name": "华胜天成",
+   "date": "2026-09-21",
+   "actual_chg": 4.06,
+   "line_touched": true,
+   "target_hit": true,
+   "score": {
+    "P1": {
+     "pred": "UP",
+     "actual": "UP",
+     "verdict": "对"
+    },
+    "P2": {
+     "pred": "YES",
+     "actual": true,
+     "verdict": "对"
+    },
+    "P3": {
+     "pred": "YES",
+     "actual": true,
+     "verdict": "对"
+    }
+   }
+  }
+ },
+ {
+  "id": "20260921-5",
+  "target_date": "2026-09-21",
+  "symbol": "sh601869",
+  "name": "长飞光纤",
+  "P1": "UP",
+  "P2": "YES",
+  "P3": "NO",
+  "rationale": "趋势+25%未破但昨日-2.58%回落+ATR6.1%, 回归未完; 信心中低",
+  "date_made": "2026-09-18T15:16",
+  "status": "scored",
+  "score_result": {
+   "pred_id": "20260921-5",
+   "name": "长飞光纤",
+   "date": "2026-09-21",
+   "actual_chg": 0.88,
+   "line_touched": true,
+   "target_hit": true,
+   "score": {
+    "P1": {
+     "pred": "UP",
+     "actual": "UP",
+     "verdict": "对"
+    },
+    "P2": {
+     "pred": "YES",
+     "actual": true,
+     "verdict": "对"
+    },
+    "P3": {
+     "pred": "NO",
+     "actual": true,
+     "verdict": "错"
+    }
+   }
+  }
+ },
+ {
+  "id": "20260922-1",
+  "target_date": "2026-09-22",
+  "symbol": "sz300765",
+  "name": "石药创新",
+  "P1": "UP",
+  "P2": "NO",
+  "P3": "NO",
+  "rationale": "prev_ret+5.72%触发过热因子(H3:昨日大涨次日低吸更差), 乖离+5.1%, 大概率高开远离低吸线; 信心低",
+  "date_made": "2026-09-21T15:12",
+  "status": "scored",
+  "score_result": {
+   "pred_id": "20260922-1",
+   "name": "石药创新",
+   "date": "2026-09-22",
+   "actual_chg": 3.17,
+   "line_touched": true,
+   "target_hit": true,
+   "score": {
+    "P1": {
+     "pred": "UP",
+     "actual": "UP",
+     "verdict": "对"
+    },
+    "P2": {
+     "pred": "NO",
+     "actual": true,
+     "verdict": "错"
+    },
+    "P3": {
+     "pred": "NO",
+     "actual": true,
+     "verdict": "错"
+    }
+   }
+  }
+ },
+ {
+  "id": "20260922-2",
+  "target_date": "2026-09-22",
+  "symbol": "sz300408",
+  "name": "三环集团",
+  "P1": "UP",
+  "P2": "YES",
+  "P3": "YES",
+  "rationale": "ret20+19.2%趋势, prev_ret-0.86%回踩日, 近5日5/5触线; 信心中",
+  "date_made": "2026-09-21T15:12",
+  "status": "scored",
+  "score_result": {
+   "pred_id": "20260922-2",
+   "name": "三环集团",
+   "date": "2026-09-22",
+   "actual_chg": -0.28,
+   "line_touched": true,
+   "target_hit": true,
+   "score": {
+    "P1": {
+     "pred": "UP",
+     "actual": "FLAT",
+     "verdict": "不计分"
+    },
+    "P2": {
+     "pred": "YES",
+     "actual": true,
+     "verdict": "对"
+    },
+    "P3": {
+     "pred": "YES",
+     "actual": true,
+     "verdict": "对"
+    }
+   }
+  }
+ },
+ {
+  "id": "20260922-3",
+  "target_date": "2026-09-22",
+  "symbol": "sh603083",
+  "name": "剑桥科技",
+  "P1": "UP",
+  "P2": "YES",
+  "P3": "YES",
+  "rationale": "ret20+27.7%强趋势但prev_ret-2.04%回落日(超声模式风险), 5/5触线; 信心低",
+  "date_made": "2026-09-21T15:12",
+  "status": "scored",
+  "score_result": {
+   "pred_id": "20260922-3",
+   "name": "剑桥科技",
+   "date": "2026-09-22",
+   "actual_chg": -1.93,
+   "line_touched": true,
+   "target_hit": true,
+   "score": {
+    "P1": {
+     "pred": "UP",
+     "actual": "DOWN",
+     "verdict": "错"
+    },
+    "P2": {
+     "pred": "YES",
+     "actual": true,
+     "verdict": "对"
+    },
+    "P3": {
+     "pred": "YES",
+     "actual": true,
+     "verdict": "对"
+    }
+   }
+  }
+ },
+ {
+  "id": "20260922-4",
+  "target_date": "2026-09-22",
+  "symbol": "sh600183",
+  "name": "生益科技",
+  "P1": "UP",
+  "P2": "YES",
+  "P3": "YES",
+  "rationale": "乖离仅+1.1%贴近MA20支撑, ret20+15.8%, prev_ret+1.63%; 信心中",
+  "date_made": "2026-09-21T15:12",
+  "status": "scored",
+  "score_result": {
+   "pred_id": "20260922-4",
+   "name": "生益科技",
+   "date": "2026-09-22",
+   "actual_chg": -1.93,
+   "line_touched": true,
+   "target_hit": false,
+   "score": {
+    "P1": {
+     "pred": "UP",
+     "actual": "DOWN",
+     "verdict": "错"
+    },
+    "P2": {
+     "pred": "YES",
+     "actual": true,
+     "verdict": "对"
+    },
+    "P3": {
+     "pred": "YES",
+     "actual": false,
+     "verdict": "错"
+    }
+   }
+  }
+ },
+ {
+  "id": "20260922-5",
+  "target_date": "2026-09-22",
+  "symbol": "sh688256",
+  "name": "寒武纪",
+  "P1": "UP",
+  "P2": "YES",
+  "P3": "YES",
+  "rationale": "ret20+14.8%趋势, 乖离+3.5%健康, prev_ret-0.03%横盘; ATR4.2%; 信心中",
+  "date_made": "2026-09-21T15:12",
+  "status": "scored",
+  "score_result": {
+   "pred_id": "20260922-5",
+   "name": "寒武纪",
+   "date": "2026-09-22",
+   "actual_chg": 0.74,
+   "line_touched": true,
+   "target_hit": true,
+   "score": {
+    "P1": {
+     "pred": "UP",
+     "actual": "UP",
+     "verdict": "对"
+    },
+    "P2": {
+     "pred": "YES",
+     "actual": true,
+     "verdict": "对"
+    },
+    "P3": {
+     "pred": "YES",
+     "actual": true,
+     "verdict": "对"
+    }
+   }
+  }
+ },
+ {
+  "id": "20260923-1",
+  "target_date": "2026-09-23",
+  "symbol": "sz300765",
+  "name": "石药创新",
+  "P1": "UP",
+  "P2": "YES",
+  "P3": "YES",
+  "rationale": "近5日5/5触线4达标, 动量强但乖离+7.9%延伸; 过热因子P2=NO首战失败后回归'高ATR默认触线'; 信心低中",
+  "date_made": "2026-09-22T15:12",
+  "status": "scored",
+  "score_result": {
+   "pred_id": "20260923-1",
+   "name": "石药创新",
+   "date": "2026-09-23",
+   "actual_chg": -1.48,
+   "line_touched": true,
+   "target_hit": true,
+   "score": {
+    "P1": {
+     "pred": "UP",
+     "actual": "DOWN",
+     "verdict": "错"
+    },
+    "P2": {
+     "pred": "YES",
+     "actual": true,
+     "verdict": "对"
+    },
+    "P3": {
+     "pred": "YES",
+     "actual": true,
+     "verdict": "对"
+    }
+   }
+  }
+ },
+ {
+  "id": "20260923-2",
+  "target_date": "2026-09-23",
+  "symbol": "sz002436",
+  "name": "兴森科技",
+  "P1": "UP",
+  "P2": "YES",
+  "P3": "YES",
+  "rationale": "ret20+32.8%强趋势, 5/5触线, 乖离+14.9%极度延伸(急回归风险); 信心低",
+  "date_made": "2026-09-22T15:12",
+  "status": "scored",
+  "score_result": {
+   "pred_id": "20260923-2",
+   "name": "兴森科技",
+   "date": "2026-09-23",
+   "actual_chg": 3.78,
+   "line_touched": false,
+   "target_hit": true,
+   "score": {
+    "P1": {
+     "pred": "UP",
+     "actual": "UP",
+     "verdict": "对"
+    },
+    "P2": {
+     "pred": "YES",
+     "actual": false,
+     "verdict": "错"
+    },
+    "P3": {
+     "verdict": "未触发不计分"
+    }
+   }
+  }
+ },
+ {
+  "id": "20260923-3",
+  "target_date": "2026-09-23",
+  "symbol": "sh600176",
+  "name": "中国巨石",
+  "P1": "UP",
+  "P2": "YES",
+  "P3": "YES",
+  "rationale": "乖离仅+3.8%贴近MA20, ret20+14.3%, prev_ret-0.87%回踩日; 信心低中(昨日巨石曾是止损票)",
+  "date_made": "2026-09-22T15:12",
+  "status": "scored",
+  "score_result": {
+   "pred_id": "20260923-3",
+   "name": "中国巨石",
+   "date": "2026-09-23",
+   "actual_chg": 0.33,
+   "line_touched": true,
+   "target_hit": true,
+   "score": {
+    "P1": {
+     "pred": "UP",
+     "actual": "UP",
+     "verdict": "对"
+    },
+    "P2": {
+     "pred": "YES",
+     "actual": true,
+     "verdict": "对"
+    },
+    "P3": {
+     "pred": "YES",
+     "actual": true,
+     "verdict": "对"
+    }
+   }
+  }
+ },
+ {
+  "id": "20260923-4",
+  "target_date": "2026-09-23",
+  "symbol": "sh688521",
+  "name": "芯原股份",
+  "P1": "UP",
+  "P2": "YES",
+  "P3": "YES",
+  "rationale": "ret20+26.5%, 乖离+8.6%, prev_ret+0.11%横盘, 5/5触线; 信心中",
+  "date_made": "2026-09-22T15:12",
+  "status": "scored",
+  "score_result": {
+   "pred_id": "20260923-4",
+   "name": "芯原股份",
+   "date": "2026-09-23",
+   "actual_chg": 1.04,
+   "line_touched": false,
+   "target_hit": true,
+   "score": {
+    "P1": {
+     "pred": "UP",
+     "actual": "UP",
+     "verdict": "对"
+    },
+    "P2": {
+     "pred": "YES",
+     "actual": false,
+     "verdict": "错"
+    },
+    "P3": {
+     "verdict": "未触发不计分"
+    }
+   }
+  }
+ },
+ {
+  "id": "20260923-5",
+  "target_date": "2026-09-23",
+  "symbol": "sz300408",
+  "name": "三环集团",
+  "P1": "UP",
+  "P2": "YES",
+  "P3": "YES",
+  "rationale": "连任池(昨日引擎止损-1.63%), ret20+18.7%, prev_ret-0.28%回踩日; 信心低中",
+  "date_made": "2026-09-22T15:12",
+  "status": "scored",
+  "score_result": {
+   "pred_id": "20260923-5",
+   "name": "三环集团",
+   "date": "2026-09-23",
+   "actual_chg": 0.71,
+   "line_touched": true,
+   "target_hit": true,
+   "score": {
+    "P1": {
+     "pred": "UP",
+     "actual": "UP",
+     "verdict": "对"
+    },
+    "P2": {
+     "pred": "YES",
+     "actual": true,
+     "verdict": "对"
+    },
+    "P3": {
+     "pred": "YES",
+     "actual": true,
+     "verdict": "对"
+    }
+   }
+  }
+ },
+ {
+  "id": "20260924-1",
+  "target_date": "2026-09-24",
+  "symbol": "sz300765",
+  "name": "石药创新",
+  "P1": "UP",
+  "P2": "YES",
+  "P3": "YES",
+  "rationale": "prev_ret-1.48%回落日, 乖离+6.1%, 近5日5/5触线4达标; 引擎今日刚+1.26%证明回踩质量在; 信心低中",
+  "date_made": "2026-09-23T15:12",
+  "status": "scored",
+  "score_result": {
+   "pred_id": "20260924-1",
+   "name": "石药创新",
+   "date": "2026-09-24",
+   "actual_chg": -6.36,
+   "line_touched": true,
+   "target_hit": false,
+   "score": {
+    "P1": {
+     "pred": "UP",
+     "actual": "DOWN",
+     "verdict": "错"
+    },
+    "P2": {
+     "pred": "YES",
+     "actual": true,
+     "verdict": "对"
+    },
+    "P3": {
+     "pred": "YES",
+     "actual": false,
+     "verdict": "错"
+    }
+   }
+  }
+ },
+ {
+  "id": "20260924-2",
+  "target_date": "2026-09-24",
+  "symbol": "sz300408",
+  "name": "三环集团",
+  "P1": "UP",
+  "P2": "YES",
+  "P3": "YES",
+  "rationale": "连任第2天(今日+1.46%达标), 乖离+8.8%, prev_ret+0.71%; 信心中",
+  "date_made": "2026-09-23T15:12",
+  "status": "scored",
+  "score_result": {
+   "pred_id": "20260924-2",
+   "name": "三环集团",
+   "date": "2026-09-24",
+   "actual_chg": -5.44,
+   "line_touched": true,
+   "target_hit": true,
+   "score": {
+    "P1": {
+     "pred": "UP",
+     "actual": "DOWN",
+     "verdict": "错"
+    },
+    "P2": {
+     "pred": "YES",
+     "actual": true,
+     "verdict": "对"
+    },
+    "P3": {
+     "pred": "YES",
+     "actual": true,
+     "verdict": "对"
+    }
+   }
+  }
+ },
+ {
+  "id": "20260924-3",
+  "target_date": "2026-09-24",
+  "symbol": "sz001389",
+  "name": "广合科技",
+  "P1": "UP",
+  "P2": "YES",
+  "P3": "YES",
+  "rationale": "ret20+26.7%, 5/5触线; 但乖离+13.5%+prev_ret-3.22%回落首日(超声模式风险, 09-21曾+10%); 信心低",
+  "date_made": "2026-09-23T15:12",
+  "status": "scored",
+  "score_result": {
+   "pred_id": "20260924-3",
+   "name": "广合科技",
+   "date": "2026-09-24",
+   "actual_chg": -5.77,
+   "line_touched": true,
+   "target_hit": true,
+   "score": {
+    "P1": {
+     "pred": "UP",
+     "actual": "DOWN",
+     "verdict": "错"
+    },
+    "P2": {
+     "pred": "YES",
+     "actual": true,
+     "verdict": "对"
+    },
+    "P3": {
+     "pred": "YES",
+     "actual": true,
+     "verdict": "对"
+    }
+   }
+  }
+ },
+ {
+  "id": "20260924-4",
+  "target_date": "2026-09-24",
+  "symbol": "sh688498",
+  "name": "源杰科技",
+  "P1": "UP",
+  "P2": "YES",
+  "P3": "YES",
+  "rationale": "乖离+4.3%健康, ret20+12.7%, 09-22曾-4.7%急杀后昨日修复; 信心中",
+  "date_made": "2026-09-23T15:12",
+  "status": "scored",
+  "score_result": {
+   "pred_id": "20260924-4",
+   "name": "源杰科技",
+   "date": "2026-09-24",
+   "actual_chg": -1.96,
+   "line_touched": true,
+   "target_hit": true,
+   "score": {
+    "P1": {
+     "pred": "UP",
+     "actual": "DOWN",
+     "verdict": "错"
+    },
+    "P2": {
+     "pred": "YES",
+     "actual": true,
+     "verdict": "对"
+    },
+    "P3": {
+     "pred": "YES",
+     "actual": true,
+     "verdict": "对"
+    }
+   }
+  }
+ },
+ {
+  "id": "20260924-5",
+  "target_date": "2026-09-24",
+  "symbol": "sz001309",
+  "name": "德明利",
+  "P1": "UP",
+  "P2": "YES",
+  "P3": "YES",
+  "rationale": "乖离+0.1%贴MA20, ret20+5.0%弱趋势; 信心低",
+  "date_made": "2026-09-23T15:12",
+  "status": "scored",
+  "score_result": {
+   "pred_id": "20260924-5",
+   "name": "德明利",
+   "date": "2026-09-24",
+   "actual_chg": -3.87,
+   "line_touched": true,
+   "target_hit": false,
+   "score": {
+    "P1": {
+     "pred": "UP",
+     "actual": "DOWN",
+     "verdict": "错"
+    },
+    "P2": {
+     "pred": "YES",
+     "actual": true,
+     "verdict": "对"
+    },
+    "P3": {
+     "pred": "YES",
+     "actual": false,
+     "verdict": "错"
+    }
+   }
+  }
+ },
+ {
+  "id": "20260925-1",
+  "target_date": "2026-09-25",
+  "symbol": "sz300765",
+  "name": "石药创新",
+  "P1": "UP",
+  "P2": "YES",
+  "P3": "YES",
+  "rationale": "-6.36%洗盘日乖离归零(-0.3%贴MA20), 超跌反弹概率高; 但趋势已破信心低; 仅供参考波动观察",
+  "date_made": "2026-09-24T15:13",
+  "status": "void",
+  "void_reason": "2026-09-25中秋节休市, 预测目标日无交易"
+ },
+ {
+  "id": "20260925-2",
+  "target_date": "2026-09-25",
+  "symbol": "sh603893",
+  "name": "瑞芯微",
+  "P1": "UP",
+  "P2": "YES",
+  "P3": "YES",
+  "rationale": "ret20+20.8%趋势强, 近5日4/5达标, ATR3.6%偏低触线概率降; 信心中",
+  "date_made": "2026-09-24T15:13",
+  "status": "void",
+  "void_reason": "2026-09-25中秋节休市, 预测目标日无交易"
+ },
+ {
+  "id": "20260925-3",
+  "target_date": "2026-09-25",
+  "symbol": "sz300408",
+  "name": "三环集团",
+  "P1": "UP",
+  "P2": "YES",
+  "P3": "YES",
+  "rationale": "-5.44%洗盘日乖离归+2.4%, ret20+9.6%趋势未破; 超跌反弹; 信心低",
+  "date_made": "2026-09-24T15:13",
+  "status": "void",
+  "void_reason": "2026-09-25中秋节休市, 预测目标日无交易"
+ },
+ {
+  "id": "20260925-4",
+  "target_date": "2026-09-25",
+  "symbol": "sh605358",
+  "name": "立昂微",
+  "P1": "UP",
+  "P2": "YES",
+  "P3": "YES",
+  "rationale": "今日+0.7%逆市抗跌且达标, ret20+8.4%, 乖离+11.3%; 信心中",
+  "date_made": "2026-09-24T15:13",
+  "status": "void",
+  "void_reason": "2026-09-25中秋节休市, 预测目标日无交易"
+ },
+ {
+  "id": "20260925-5",
+  "target_date": "2026-09-25",
+  "symbol": null,
+  "name": "源杰科技(XD除权)",
+  "P1": "UP",
+  "P2": "YES",
+  "P3": "YES",
+  "rationale": "XD除权日, 乖离+2.0%健康; **无底仓(股价>15万/手)今日起引擎已禁交易, 本预测仅供参考**; 信心低",
+  "date_made": "2026-09-24T15:13",
+  "status": "void",
+  "void_reason": "2026-09-25中秋节休市, 预测目标日无交易"
+ },
+ {
+  "id": "20260928-1",
+  "target_date": "2026-09-28",
+  "symbol": "sz300765",
+  "name": "石药创新",
+  "P1": "UP",
+  "P2": "YES",
+  "P3": "YES",
+  "rationale": "-6.36%洗盘后乖离-0.3%贴MA20, 超跌反弹逻辑; 趋势已破信心低",
+  "date_made": "2026-09-25T15:15",
+  "status": "scored",
+  "score_result": {
+   "pred_id": "20260928-1",
+   "name": "石药创新",
+   "date": "2026-09-28",
+   "actual_chg": -0.27,
+   "line_touched": true,
+   "target_hit": true,
+   "score": {
+    "P1": {
+     "pred": "UP",
+     "actual": "FLAT",
+     "verdict": "不计分"
+    },
+    "P2": {
+     "pred": "YES",
+     "actual": true,
+     "verdict": "对"
+    },
+    "P3": {
+     "pred": "YES",
+     "actual": true,
+     "verdict": "对"
+    }
+   }
+  }
+ },
+ {
+  "id": "20260928-2",
+  "target_date": "2026-09-28",
+  "symbol": "sh603893",
+  "name": "瑞芯微",
+  "P1": "UP",
+  "P2": "YES",
+  "P3": "YES",
+  "rationale": "ret20+20.8%强趋势, 近5日4/5达标, ATR3.6%偏低; 信心中",
+  "date_made": "2026-09-25T15:15",
+  "status": "scored",
+  "score_result": {
+   "pred_id": "20260928-2",
+   "name": "瑞芯微",
+   "date": "2026-09-28",
+   "actual_chg": -3.55,
+   "line_touched": true,
+   "target_hit": true,
+   "score": {
+    "P1": {
+     "pred": "UP",
+     "actual": "DOWN",
+     "verdict": "错"
+    },
+    "P2": {
+     "pred": "YES",
+     "actual": true,
+     "verdict": "对"
+    },
+    "P3": {
+     "pred": "YES",
+     "actual": true,
+     "verdict": "对"
+    }
+   }
+  }
+ },
+ {
+  "id": "20260928-3",
+  "target_date": "2026-09-28",
+  "symbol": "sz300408",
+  "name": "三环集团",
+  "P1": "UP",
+  "P2": "YES",
+  "P3": "YES",
+  "rationale": "连任第3天, -5.44%洗盘后乖离+2.4%, ret20+9.6%趋势未破; 信心低",
+  "date_made": "2026-09-25T15:15",
+  "status": "scored",
+  "score_result": {
+   "pred_id": "20260928-3",
+   "name": "三环集团",
+   "date": "2026-09-28",
+   "actual_chg": -6.3,
+   "line_touched": true,
+   "target_hit": false,
+   "score": {
+    "P1": {
+     "pred": "UP",
+     "actual": "DOWN",
+     "verdict": "错"
+    },
+    "P2": {
+     "pred": "YES",
+     "actual": true,
+     "verdict": "对"
+    },
+    "P3": {
+     "pred": "YES",
+     "actual": false,
+     "verdict": "错"
+    }
+   }
+  }
+ },
+ {
+  "id": "20260928-4",
+  "target_date": "2026-09-28",
+  "symbol": "sh605358",
+  "name": "立昂微",
+  "P1": "UP",
+  "P2": "YES",
+  "P3": "YES",
+  "rationale": "09-24逆市+0.65%抗跌且达标, ret20+8.4%; 信心中",
+  "date_made": "2026-09-25T15:15",
+  "status": "scored",
+  "score_result": {
+   "pred_id": "20260928-4",
+   "name": "立昂微",
+   "date": "2026-09-28",
+   "actual_chg": -5.52,
+   "line_touched": true,
+   "target_hit": true,
+   "score": {
+    "P1": {
+     "pred": "UP",
+     "actual": "DOWN",
+     "verdict": "错"
+    },
+    "P2": {
+     "pred": "YES",
+     "actual": true,
+     "verdict": "对"
+    },
+    "P3": {
+     "pred": "YES",
+     "actual": true,
+     "verdict": "对"
+    }
+   }
+  }
+ },
+ {
+  "id": "20260928-5",
+  "target_date": "2026-09-28",
+  "symbol": null,
+  "name": "源杰科技(XD)",
+  "P1": "UP",
+  "P2": "YES",
+  "P3": "YES",
+  "rationale": "XD除权, 乖离+2.0%; **无底仓引擎已禁交易, 预测仅供参考**; 信心低",
+  "date_made": "2026-09-25T15:15",
+  "status": "void",
+  "void_reason": "XD除权后日线取数异常(双源None), 目标日已过"
+ },
+ {
+  "id": "20260929-1",
+  "target_date": "2026-09-29",
+  "symbol": "sz300765",
+  "name": "石药创新",
+  "P1": "DOWN",
+  "P2": "YES",
+  "P3": "YES",
+  "rationale": "ret20转负-0.8%+跌破MA20(-0.5%), 趋势正式破坏; 但5/5触线4达标回归结构仍在; 信心低",
+  "date_made": "2026-09-28T15:13",
+  "status": "scored",
+  "score_result": {
+   "pred_id": "20260929-1",
+   "name": "石药创新",
+   "date": "2026-09-29",
+   "actual_chg": 0.11,
+   "line_touched": false,
+   "target_hit": true,
+   "score": {
+    "P1": {
+     "pred": "DOWN",
+     "actual": "FLAT",
+     "verdict": "不计分"
+    },
+    "P2": {
+     "pred": "YES",
+     "actual": false,
+     "verdict": "错"
+    },
+    "P3": {
+     "verdict": "未触发不计分"
+    }
+   }
+  }
+ },
+ {
+  "id": "20260929-2",
+  "target_date": "2026-09-29",
+  "symbol": "sz001389",
+  "name": "广合科技",
+  "P1": "UP",
+  "P2": "YES",
+  "P3": "YES",
+  "rationale": "乖离回落至+3.5%贴近MA20, ret20+13.9%, prev_ret-1.97%; 信心中",
+  "date_made": "2026-09-28T15:13",
+  "status": "scored",
+  "score_result": {
+   "pred_id": "20260929-2",
+   "name": "广合科技",
+   "date": "2026-09-29",
+   "actual_chg": 8.02,
+   "line_touched": true,
+   "target_hit": true,
+   "score": {
+    "P1": {
+     "pred": "UP",
+     "actual": "UP",
+     "verdict": "对"
+    },
+    "P2": {
+     "pred": "YES",
+     "actual": true,
+     "verdict": "对"
+    },
+    "P3": {
+     "pred": "YES",
+     "actual": true,
+     "verdict": "对"
+    }
+   }
+  }
+ },
+ {
+  "id": "20260929-3",
+  "target_date": "2026-09-29",
+  "symbol": "sh603893",
+  "name": "瑞芯微",
+  "P1": "UP",
+  "P2": "YES",
+  "P3": "YES",
+  "rationale": "ret20+19.4%趋势尚在, 乖离+8.7%, prev_ret-3.55%回落日; 信心低",
+  "date_made": "2026-09-28T15:13",
+  "status": "scored",
+  "score_result": {
+   "pred_id": "20260929-3",
+   "name": "瑞芯微",
+   "date": "2026-09-29",
+   "actual_chg": 0.79,
+   "line_touched": true,
+   "target_hit": true,
+   "score": {
+    "P1": {
+     "pred": "UP",
+     "actual": "UP",
+     "verdict": "对"
+    },
+    "P2": {
+     "pred": "YES",
+     "actual": true,
+     "verdict": "对"
+    },
+    "P3": {
+     "pred": "YES",
+     "actual": true,
+     "verdict": "对"
+    }
+   }
+  }
+ },
+ {
+  "id": "20260929-4",
+  "target_date": "2026-09-29",
+  "symbol": "sh600641",
+  "name": "先导基电",
+  "P1": "DOWN",
+  "P2": "YES",
+  "P3": "NO",
+  "rationale": "超声模式第3样本: 乖离+37.6%极端+prev_ret-4.56%回落首日+ret20+41.4%抛物线; 崇达反例在前, 信心低",
+  "date_made": "2026-09-28T15:13",
+  "status": "scored",
+  "score_result": {
+   "pred_id": "20260929-4",
+   "name": "先导基电",
+   "date": "2026-09-29",
+   "actual_chg": -0.91,
+   "line_touched": true,
+   "target_hit": true,
+   "score": {
+    "P1": {
+     "pred": "DOWN",
+     "actual": "DOWN",
+     "verdict": "对"
+    },
+    "P2": {
+     "pred": "YES",
+     "actual": true,
+     "verdict": "对"
+    },
+    "P3": {
+     "pred": "NO",
+     "actual": true,
+     "verdict": "错"
+    }
+   }
+  }
+ },
+ {
+  "id": "20260929-5",
+  "target_date": "2026-09-29",
+  "symbol": "sz002119",
+  "name": "康强电子",
+  "P1": "UP",
+  "P2": "YES",
+  "P3": "YES",
+  "rationale": "两连板后横盘(+0.34%), ret20+27.8%动量强; 乖离+22.3%延伸; 信心低",
+  "date_made": "2026-09-28T15:13",
+  "status": "scored",
+  "score_result": {
+   "pred_id": "20260929-5",
+   "name": "康强电子",
+   "date": "2026-09-29",
+   "actual_chg": -4.85,
+   "line_touched": true,
+   "target_hit": true,
+   "score": {
+    "P1": {
+     "pred": "UP",
+     "actual": "DOWN",
+     "verdict": "错"
+    },
+    "P2": {
+     "pred": "YES",
+     "actual": true,
+     "verdict": "对"
+    },
+    "P3": {
+     "pred": "YES",
+     "actual": true,
+     "verdict": "对"
+    }
+   }
+  }
+ },
+ {
+  "id": "20260930-1",
+  "target_date": "2026-09-30",
+  "symbol": "sz300765",
+  "name": "石药创新",
+  "P1": "UP",
+  "P2": "YES",
+  "P3": "YES",
+  "rationale": "FLAT日乖离-0.4%, 箱体43.9-44.6, 近5日4/5触线; ret20-0.3%趋势已弱; 信心低",
+  "date_made": "2026-09-29T15:13",
+  "status": "scored",
+  "score_result": {
+   "pred_id": "20260930-1",
+   "name": "石药创新",
+   "date": "2026-09-30",
+   "actual_chg": 7.06,
+   "line_touched": true,
+   "target_hit": true,
+   "score": {
+    "P1": {
+     "pred": "UP",
+     "actual": "UP",
+     "verdict": "对"
+    },
+    "P2": {
+     "pred": "YES",
+     "actual": true,
+     "verdict": "对"
+    },
+    "P3": {
+     "pred": "YES",
+     "actual": true,
+     "verdict": "对"
+    }
+   }
+  }
+ },
+ {
+  "id": "20260930-2",
+  "target_date": "2026-09-30",
+  "symbol": "sh600641",
+  "name": "先导基电",
+  "P1": "DOWN",
+  "P2": "YES",
+  "P3": "NO",
+  "rationale": "超声模式连续第2日验证(昨日DOWN对): 乖离+33.7%极端延伸, prev_ret-0.91%回落中; 信心中低",
+  "date_made": "2026-09-29T15:13",
+  "status": "scored",
+  "score_result": {
+   "pred_id": "20260930-2",
+   "name": "先导基电",
+   "date": "2026-09-30",
+   "actual_chg": -0.39,
+   "line_touched": true,
+   "target_hit": true,
+   "score": {
+    "P1": {
+     "pred": "DOWN",
+     "actual": "DOWN",
+     "verdict": "对"
+    },
+    "P2": {
+     "pred": "YES",
+     "actual": true,
+     "verdict": "对"
+    },
+    "P3": {
+     "pred": "NO",
+     "actual": true,
+     "verdict": "错"
+    }
+   }
+  }
+ },
+ {
+  "id": "20260930-3",
+  "target_date": "2026-09-30",
+  "symbol": "sz300207",
+  "name": "欣旺达",
+  "P1": "UP",
+  "P2": "YES",
+  "P3": "YES",
+  "rationale": "ret20+23.4%动量强, 乖离+15.1%偏高, prev_ret+0.56%横盘; 信心中",
+  "date_made": "2026-09-29T15:13",
+  "status": "scored",
+  "score_result": {
+   "pred_id": "20260930-3",
+   "name": "欣旺达",
+   "date": "2026-09-30",
+   "actual_chg": 2.33,
+   "line_touched": true,
+   "target_hit": true,
+   "score": {
+    "P1": {
+     "pred": "UP",
+     "actual": "UP",
+     "verdict": "对"
+    },
+    "P2": {
+     "pred": "YES",
+     "actual": true,
+     "verdict": "对"
+    },
+    "P3": {
+     "pred": "YES",
+     "actual": true,
+     "verdict": "对"
+    }
+   }
+  }
+ },
+ {
+  "id": "20260930-4",
+  "target_date": "2026-09-30",
+  "symbol": "sh688008",
+  "name": "澜起科技",
+  "P1": "UP",
+  "P2": "YES",
+  "P3": "YES",
+  "rationale": "乖离+6.2%健康, 昨日达标, prev_ret+1.92%; 信心中",
+  "date_made": "2026-09-29T15:13",
+  "status": "scored",
+  "score_result": {
+   "pred_id": "20260930-4",
+   "name": "澜起科技",
+   "date": "2026-09-30",
+   "actual_chg": -4.84,
+   "line_touched": true,
+   "target_hit": true,
+   "score": {
+    "P1": {
+     "pred": "UP",
+     "actual": "DOWN",
+     "verdict": "错"
+    },
+    "P2": {
+     "pred": "YES",
+     "actual": true,
+     "verdict": "对"
+    },
+    "P3": {
+     "pred": "YES",
+     "actual": true,
+     "verdict": "对"
+    }
+   }
+  }
+ },
+ {
+  "id": "20260930-5",
+  "target_date": "2026-09-30",
+  "symbol": "sz002119",
+  "name": "康强电子",
+  "P1": "DOWN",
+  "P2": "YES",
+  "P3": "NO",
+  "rationale": "昨日-4.85%大跌, 超声变体(延伸后急杀)延续概率高; 信心低",
+  "date_made": "2026-09-29T15:13",
+  "status": "scored",
+  "score_result": {
+   "pred_id": "20260930-5",
+   "name": "康强电子",
+   "date": "2026-09-30",
+   "actual_chg": -8.74,
+   "line_touched": true,
+   "target_hit": true,
+   "score": {
+    "P1": {
+     "pred": "DOWN",
+     "actual": "DOWN",
+     "verdict": "对"
+    },
+    "P2": {
+     "pred": "YES",
+     "actual": true,
+     "verdict": "对"
+    },
+    "P3": {
+     "pred": "NO",
+     "actual": true,
+     "verdict": "错"
+    }
+   }
+  }
+ },
+ {
+  "id": "20261008-1",
+  "target_date": "2026-10-08",
+  "symbol": "sz300765",
+  "name": "石药创新",
+  "P1": "UP",
+  "P2": "YES",
+  "P3": "YES",
+  "rationale": "+7.06%大反弹收47.19, 乖离+6.3%, ret20转正+5.9%趋势修复; 但prev_ret+7.06%过热(H3质量因子); 信心低中",
+  "date_made": "2026-09-30T15:14",
+  "status": "pending"
+ },
+ {
+  "id": "20261008-2",
+  "target_date": "2026-10-08",
+  "symbol": "sh600641",
+  "name": "先导基电",
+  "P1": "DOWN",
+  "P2": "YES",
+  "P3": "NO",
+  "rationale": "超声模式3/4: 乖离+30.5%极端延伸+连任第4天; 假期外围若平稳则阴跌延续; 信心低中",
+  "date_made": "2026-09-30T15:14",
+  "status": "pending"
+ },
+ {
+  "id": "20261008-3",
+  "target_date": "2026-10-08",
+  "symbol": "sh600150",
+  "name": "中国船舶",
+  "P1": "UP",
+  "P2": "YES",
+  "P3": "YES",
+  "rationale": "回池, 乖离+1.5%贴MA20, ret20+13.6%, 09-30达标; 信心中",
+  "date_made": "2026-09-30T15:14",
+  "status": "pending"
+ },
+ {
+  "id": "20261008-4",
+  "target_date": "2026-10-08",
+  "symbol": "sz300548",
+  "name": "长芯博创",
+  "P1": "UP",
+  "P2": "YES",
+  "P3": "YES",
+  "rationale": "乖离+0.4%贴MA20, ret20+7.0%, 09-28曾-7.8%深坑已修复; 信心中",
+  "date_made": "2026-09-30T15:14",
+  "status": "pending"
+ },
+ {
+  "id": "20261008-5",
+  "target_date": "2026-10-08",
+  "symbol": "sh688008",
+  "name": "澜起科技",
+  "P1": "UP",
+  "P2": "YES",
+  "P3": "YES",
+  "rationale": "乖离+0.9%贴MA20, 但prev_ret-4.84%大跌日(超声变体风险); 信心低",
+  "date_made": "2026-09-30T15:14",
+  "status": "pending"
+ }
+]

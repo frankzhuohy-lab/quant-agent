@@ -1,0 +1,82 @@
+{
+ "generated": "2026-09-25",
+ "model": "hold_rotate_top4",
+ "k": 4,
+ "side_cost": 0.0011,
+ "n_symbols": 198,
+ "calendar": [
+  "20260313",
+  "20260922"
+ ],
+ "folds": [
+  {
+   "n_days": 51,
+   "n_trades": 111,
+   "mean_daily": 0.006074294211212663
+  },
+  {
+   "n_days": 52,
+   "n_trades": 116,
+   "mean_daily": 0.0015668675824578465
+  }
+ ],
+ "strategy_gate": {
+  "kind": "strategy",
+  "status": "eligible",
+  "published": false,
+  "n_folds": 2,
+  "n_trades": 227,
+  "positive_folds": 2,
+  "positive_fold_ratio": 1.0,
+  "sharpe_ann": 2.006413679906303,
+  "sharpe_infinite": false,
+  "max_drawdown": -0.15090836040635103,
+  "mean_daily": 0.0037987001850451826,
+  "reasons": [],
+  "action": "可以写入变更台账，但仍未发布"
+ },
+ "baseline_gate": {
+  "kind": "strategy",
+  "status": "reject",
+  "published": false,
+  "n_folds": 2,
+  "n_trades": 396,
+  "positive_folds": 2,
+  "positive_fold_ratio": 1.0,
+  "sharpe_ann": 1.7989119240394418,
+  "sharpe_infinite": false,
+  "max_drawdown": -0.31383790250666765,
+  "mean_daily": 0.003383580315540841,
+  "reasons": [
+   "最大回撤 -0.31383790250666765 差于 -25%"
+  ],
+  "action": "不得发布，不得据此修改冻结层"
+ },
+ "diff_gate": {
+  "kind": "diff_family",
+  "status": "reject",
+  "published": false,
+  "q": 0.1,
+  "tests": [
+   {
+    "name": "hold_minus_ew",
+    "expected_sign": 1,
+    "n": 103,
+    "mean": 0.00041511986950434145,
+    "t": 0.12927058164286967,
+    "p": 0.897398116177881,
+    "lag": 4,
+    "hac_fallback": false,
+    "q_adj": 0.897398116177881,
+    "sign_ok": true,
+    "pass": false
+   }
+  ],
+  "reasons": [
+   "hold_minus_ew BH q=0.897398116177881 > 0.10"
+  ],
+  "action": "不得发布，不得据此修改冻结层"
+ },
+ "better": false,
+ "bias": "宇宙为 2026-09-22 成交额前 200 的静态快照"
+}

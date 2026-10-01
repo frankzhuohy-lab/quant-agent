@@ -1,0 +1,5 @@
+{
+ "invalid": true,
+ "reason": "m5字段序bug(b[4]=low被当成交价), 结论作废; 修正重赛见 bt_round4b_corrected.py / bt_model_report.md 第九节",
+ "superseded_by": "bt_round4b_result.json"
+}

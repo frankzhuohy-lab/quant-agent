@@ -1,0 +1,320 @@
+{
+ "windows": {
+  "IS": {
+   "candidate": {
+    "n_trades": 100,
+    "total_return": -0.1304,
+    "annual_return": -0.0857,
+    "sharpe": -0.63,
+    "sortino": -0.878,
+    "max_drawdown": -0.1923,
+    "calmar": -0.446,
+    "win_rate": 0.29,
+    "payoff_ratio": 1.493,
+    "avg_holding_days": 8.82,
+    "turnover_x": 0.2,
+    "avg_exposure": 0.484,
+    "total_cost": 2623.70254,
+    "positive_days": 0.1374
+   },
+   "baseline": {
+    "n_trades": 282,
+    "total_return": -0.0543,
+    "annual_return": -0.0332,
+    "sharpe": 0.006,
+    "sortino": 0.011,
+    "max_drawdown": -0.1965,
+    "calmar": -0.169,
+    "win_rate": 0.3511,
+    "payoff_ratio": 1.744,
+    "avg_holding_days": 9.23,
+    "turnover_x": 0.21,
+    "avg_exposure": 0.64,
+    "total_cost": 7917.31004,
+    "positive_days": 0.2885
+   },
+   "delta_sharpe": -0.636,
+   "delta_maxdd_pp": 0.42,
+   "delta_annual_pp": -5.25
+  },
+  "DEV": {
+   "candidate": {
+    "n_trades": 74,
+    "total_return": 0.1878,
+    "annual_return": 0.4108,
+    "sharpe": 1.607,
+    "sortino": 2.833,
+    "max_drawdown": -0.1017,
+    "calmar": 4.04,
+    "win_rate": 0.6351,
+    "payoff_ratio": 1.364,
+    "avg_holding_days": 9.38,
+    "turnover_x": 0.24,
+    "avg_exposure": 0.57,
+    "total_cost": 2996.12006,
+    "positive_days": 0.4048
+   },
+   "baseline": {
+    "n_trades": 128,
+    "total_return": 0.5499,
+    "annual_return": 1.4023,
+    "sharpe": 3.159,
+    "sortino": 6.744,
+    "max_drawdown": -0.0958,
+    "calmar": 14.639,
+    "win_rate": 0.7031,
+    "payoff_ratio": 1.958,
+    "avg_holding_days": 9.46,
+    "turnover_x": 0.29,
+    "avg_exposure": 0.743,
+    "total_cost": 5523.71106,
+    "positive_days": 0.4762
+   },
+   "delta_sharpe": -1.552,
+   "delta_maxdd_pp": -0.59,
+   "delta_annual_pp": -99.15
+  }
+ },
+ "stress": {
+  "cost_x2_DEV": {
+   "n_trades": 74,
+   "total_return": 0.1846,
+   "annual_return": 0.4034,
+   "sharpe": 1.586,
+   "sortino": 2.791,
+   "max_drawdown": -0.1018,
+   "calmar": 3.963,
+   "win_rate": 0.6351,
+   "payoff_ratio": 1.347,
+   "avg_holding_days": 9.38,
+   "turnover_x": 0.24,
+   "avg_exposure": 0.57,
+   "total_cost": 5984.88052,
+   "positive_days": 0.3968
+  }
+ },
+ "walkforward": [
+  {
+   "fold": 1,
+   "is_window": [
+    "2023-09-08",
+    "2024-05-14"
+   ],
+   "oos_window": [
+    "2024-05-15",
+    "2024-08-07"
+   ],
+   "is": {
+    "n_trades": 33,
+    "total_return": -0.1061,
+    "annual_return": -0.2115,
+    "sharpe": -2.249,
+    "sortino": -2.444,
+    "max_drawdown": -0.126,
+    "calmar": -1.678,
+    "win_rate": 0.1515,
+    "payoff_ratio": 1.084,
+    "avg_holding_days": 7.97,
+    "turnover_x": 0.23,
+    "avg_exposure": 0.589,
+    "total_cost": 883.12439,
+    "positive_days": 0.1008
+   },
+   "oos": {
+    "n_trades": 15,
+    "total_return": -0.0377,
+    "annual_return": -0.2105,
+    "sharpe": -1.561,
+    "sortino": -1.979,
+    "max_drawdown": -0.0695,
+    "calmar": -3.028,
+    "win_rate": 0.2667,
+    "payoff_ratio": 0.453,
+    "avg_holding_days": 9.13,
+    "turnover_x": 0.21,
+    "avg_exposure": 0.624,
+    "total_cost": 421.64985,
+    "positive_days": 0.1707
+   }
+  },
+  {
+   "fold": 2,
+   "is_window": [
+    "2023-12-11",
+    "2024-08-07"
+   ],
+   "oos_window": [
+    "2024-08-08",
+    "2024-11-08"
+   ],
+   "is": {
+    "n_trades": 30,
+    "total_return": -0.0679,
+    "annual_return": -0.1685,
+    "sharpe": -1.505,
+    "sortino": -1.818,
+    "max_drawdown": -0.0778,
+    "calmar": -2.166,
+    "win_rate": 0.3,
+    "payoff_ratio": 0.759,
+    "avg_holding_days": 8.73,
+    "turnover_x": 0.22,
+    "avg_exposure": 0.606,
+    "total_cost": 833.09761,
+    "positive_days": 0.1458
+   },
+   "oos": {
+    "n_trades": 3,
+    "total_return": 0.0825,
+    "annual_return": 1.2229,
+    "sharpe": 4.12,
+    "sortino": 14.135,
+    "max_drawdown": -0.0335,
+    "calmar": 36.532,
+    "win_rate": 1.0,
+    "payoff_ratio": null,
+    "avg_holding_days": 10.0,
+    "turnover_x": 0.21,
+    "avg_exposure": 0.217,
+    "total_cost": 106.71258,
+    "positive_days": 0.24
+   }
+  },
+  {
+   "fold": 3,
+   "is_window": [
+    "2024-03-13",
+    "2024-11-08"
+   ],
+   "oos_window": [
+    "2024-11-11",
+    "2025-02-11"
+   ],
+   "is": {
+    "n_trades": 36,
+    "total_return": -0.0,
+    "annual_return": -0.0001,
+    "sharpe": 0.062,
+    "sortino": 0.095,
+    "max_drawdown": -0.0781,
+    "calmar": -0.001,
+    "win_rate": 0.3333,
+    "payoff_ratio": 2.055,
+    "avg_holding_days": 8.89,
+    "turnover_x": 0.21,
+    "avg_exposure": 0.436,
+    "total_cost": 1012.3968,
+    "positive_days": 0.1474
+   },
+   "oos": {
+    "n_trades": 13,
+    "total_return": -0.0934,
+    "annual_return": -0.3781,
+    "sharpe": -3.329,
+    "sortino": -3.794,
+    "max_drawdown": -0.114,
+    "calmar": -3.317,
+    "win_rate": 0.0769,
+    "payoff_ratio": 0.05,
+    "avg_holding_days": 7.23,
+    "turnover_x": 0.25,
+    "avg_exposure": 0.315,
+    "total_cost": 409.85544,
+    "positive_days": 0.1731
+   }
+  },
+  {
+   "fold": 4,
+   "is_window": [
+    "2024-06-13",
+    "2025-02-11"
+   ],
+   "oos_window": [
+    "2025-02-12",
+    "2025-05-12"
+   ],
+   "is": {
+    "n_trades": 37,
+    "total_return": -0.0768,
+    "annual_return": -0.1183,
+    "sharpe": -0.845,
+    "sortino": -1.227,
+    "max_drawdown": -0.1244,
+    "calmar": -0.951,
+    "win_rate": 0.1892,
+    "payoff_ratio": 2.334,
+    "avg_holding_days": 8.49,
+    "turnover_x": 0.23,
+    "avg_exposure": 0.324,
+    "total_cost": 1097.13614,
+    "positive_days": 0.1812
+   },
+   "oos": {
+    "n_trades": 30,
+    "total_return": 0.034,
+    "annual_return": 0.1509,
+    "sharpe": 0.883,
+    "sortino": 1.756,
+    "max_drawdown": -0.048,
+    "calmar": 3.145,
+    "win_rate": 0.6,
+    "payoff_ratio": 1.59,
+    "avg_holding_days": 10.0,
+    "turnover_x": 0.2,
+    "avg_exposure": 0.811,
+    "total_cost": 893.98665,
+    "positive_days": 0.1833
+   }
+  }
+ ],
+ "bootstrap": null,
+ "dev_label": "DEV",
+ "stress_baseline": {
+  "cost_x2_DEV": {
+   "n_trades": 125,
+   "total_return": 0.5444,
+   "annual_return": 1.3853,
+   "sharpe": 3.133,
+   "sortino": 6.676,
+   "max_drawdown": -0.0962,
+   "calmar": 14.394,
+   "win_rate": 0.688,
+   "payoff_ratio": 2.02,
+   "avg_holding_days": 9.44,
+   "turnover_x": 0.29,
+   "avg_exposure": 0.743,
+   "total_cost": 10951.80695,
+   "positive_days": 0.4762
+  }
+ },
+ "wf_worst_fold_oos_annual": -0.3781,
+ "window_ranges": {
+  "IS": [
+   "2023-09-08",
+   "2025-06-30"
+  ],
+  "DEV": [
+   "2025-07-01",
+   "2025-12-31"
+  ]
+ },
+ "bootstrap_method": {
+  "diff": "候选−基线 DEV 窗口日收益序列逐日相减",
+  "resampling": "moving-block bootstrap（block=10，保持时间依赖）",
+  "n_boot": 500,
+  "caveat": "半年窗口样本短，p 值只作辅助证据；拒绝须以预设规则为准"
+ },
+ "bootstrap_oos": {
+  "mean_diff_daily": -0.002196,
+  "mean_diff_ann": -0.5533,
+  "p_le_0": 0.996,
+  "ci90": [
+   -0.00457,
+   -0.00055
+  ],
+  "n": 125,
+  "n_boot": 500,
+  "block": 10
+ },
+ "consistent": true
+}

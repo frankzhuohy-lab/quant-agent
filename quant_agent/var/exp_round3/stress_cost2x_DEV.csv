@@ -1,0 +1,5 @@
+变体,DEV净累计(成本x2)
+baseline,0.5444
+E1_cap20,0.4137
+E2_ridge_rank,0.525
+E3_cart_rank,0.5433

@@ -1,0 +1,22 @@
+{
+  "rule_id": "universe_rule_001",
+  "frozen_at": "2026-09-30",
+  "frozen_by": "francis+quant_agent_bootstrap",
+  "note": "PIT 宇宙筛选规则（阶段二）。在任何决策日 t，证券须同时满足: 上市满一年、近60日成交额中位数达标、价格下限、当日非停牌、名称无风险标记。修改本规则 = 新研究批次。",
+  "candidate_superset": {
+    "source": "东方财富行业板块 BK1036（半导体）当前成分 188 只，作候选超集（非历史宇宙本身）",
+    "plus_delisted": "akshare 沪深退市名单按名称关键词(芯/微/半导/光电/集成)匹配并经腾讯K线可取得性核验",
+    "limitation": "候选超集以'当前仍在板块+关键词退市股'近似；历史上曾属半导体但现已更名/并入他板块且非关键词命中的证券可能遗漏，残余偏差方向未知、量级估计小（半导体退市案例极少），但不可宣称为零。"
+  },
+  "screens": {
+    "min_listed_days": 250,
+    "min_median_amount60_cny": 10000000,
+    "min_close_cny": 2.0,
+    "require_volume_positive": true,
+    "exclude_name_keywords": ["ST", "退"],
+    "name_limitation": "名称过滤使用当前名称近似历史状态（ST 戴帽/摘帽历史未接入），可能误排/漏排，量级有限，已记录为阶段三审计项。",
+    "amount_threshold_calibration": "10M CNY ≈ 定型池流动性分布下沿（石英股份约10.9M/日）；纸面资金规模下 20% 单笔占比参与率约1%，容量充足。阈值随资金规模上调需新批次。"
+  },
+  "board_semantics": "板块级聚合特征(flr5/breadth)始终按 baseline_001 的 22 只定型池计算并冻结；PIT 宇宙只决定'可交易候选'，不改变板块定义。",
+  "holding_period": "宇宙按日判定，每日收盘后重算，T+1 开盘执行时按前一交易日宇宙成员资格。"
+}

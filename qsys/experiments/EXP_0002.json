@@ -1,0 +1,121 @@
+{
+ "hyp_id": "H2_regime_gate",
+ "title": "非上涨趋势不开新仓（只在指数>MA60 且 20日动量>+3% 时入场）",
+ "change": "entry 增加市场趋势过滤（震荡/下跌趋势空仓）",
+ "one_variable": "仅入场门控加一个市场级条件",
+ "rationale": "Part1 铁证：震荡市年化-47.3%/回撤-47.4%（252笔入场），下跌市-27.6%；全部利润来自上涨市。趋势过滤是结构性改动（非参数微调），理论依据=动量策略只在趋势市有正期望，样本外稳健性文献支持",
+ "score_v_r_rob": [
+  5,
+  4,
+  4
+ ],
+ "note": "",
+ "ts": "2026-09-30T18:14:55.169239",
+ "baseline": {
+  "IS": {
+   "n_trades": 347,
+   "total_return": -0.3253,
+   "annual_return": -0.2026,
+   "sharpe": -0.45,
+   "sortino": -0.684,
+   "max_drawdown": -0.4153,
+   "calmar": -0.488,
+   "win_rate": 0.3862,
+   "payoff_ratio": 1.269,
+   "avg_holding_days": 8.95,
+   "turnover_x": 0.22,
+   "avg_exposure": 0.935,
+   "total_cost": 0.1332,
+   "positive_days": 0.3105
+  },
+  "OOS": {
+   "n_trades": 203,
+   "total_return": 2.8685,
+   "annual_return": 2.2013,
+   "sharpe": 2.447,
+   "sortino": 5.475,
+   "max_drawdown": -0.2373,
+   "calmar": 9.278,
+   "win_rate": 0.8079,
+   "payoff_ratio": 2.168,
+   "avg_holding_days": 9.74,
+   "turnover_x": 0.21,
+   "avg_exposure": 1.049,
+   "total_cost": 0.072,
+   "positive_days": 0.2628
+  }
+ },
+ "variant": {
+  "IS": {
+   "n_trades": 149,
+   "total_return": -0.2374,
+   "annual_return": -0.1444,
+   "sharpe": -0.67,
+   "sortino": -0.916,
+   "max_drawdown": -0.3467,
+   "calmar": -0.417,
+   "win_rate": 0.3289,
+   "payoff_ratio": 0.942,
+   "avg_holding_days": 8.88,
+   "turnover_x": 0.22,
+   "avg_exposure": 0.675,
+   "total_cost": 0.0567,
+   "positive_days": 0.1781
+  },
+  "OOS": {
+   "n_trades": 144,
+   "total_return": 2.8367,
+   "annual_return": 2.1787,
+   "sharpe": 2.574,
+   "sortino": 6.003,
+   "max_drawdown": -0.1259,
+   "calmar": 17.31,
+   "win_rate": 0.8681,
+   "payoff_ratio": 3.084,
+   "avg_holding_days": 9.94,
+   "turnover_x": 0.2,
+   "avg_exposure": 1.031,
+   "total_cost": 0.0522,
+   "positive_days": 0.1945
+  }
+ },
+ "stress": {
+  "oos_cost_x2": {
+   "n_trades": 144,
+   "total_return": 2.6442,
+   "annual_return": 2.041,
+   "sharpe": 2.489,
+   "sortino": 5.726,
+   "max_drawdown": -0.1316,
+   "calmar": 15.514,
+   "win_rate": 0.8611,
+   "payoff_ratio": 2.915,
+   "avg_holding_days": 9.94,
+   "turnover_x": 0.2,
+   "avg_exposure": 1.031,
+   "total_cost": 0.1044,
+   "positive_days": 0.1911
+  },
+  "oos_cap100": {
+   "n_trades": 144,
+   "total_return": 2.8367,
+   "annual_return": 2.1787,
+   "sharpe": 2.574,
+   "sortino": 6.003,
+   "max_drawdown": -0.1259,
+   "calmar": 17.31,
+   "win_rate": 0.8681,
+   "payoff_ratio": 3.084,
+   "avg_holding_days": 9.94,
+   "turnover_x": 0.2,
+   "avg_exposure": 1.031,
+   "total_cost": 0.0522,
+   "positive_days": 0.1945
+  }
+ },
+ "decision": "ACCEPT",
+ "reason": "OOS年化不降(220→218%)、Sharpe 2.45→2.57、回撤-23.7%→-12.6%腰斩、Calmar 9.3→17.3；WF坏折亏损减半左尾收窄；趋势判定全因果无未来函数；唯一代价是放弃震荡市(-47%/年)的幻觉交易",
+ "_auto_hint": "OOS 回撤改善且 Sharpe 基本不降 → 倾向 ACCEPT",
+ "seq": 2,
+ "id": "EXP_0002"
+}

@@ -1,0 +1,11 @@
+{
+ "K": 3,
+ "allow_fewer": true,
+ "exposure_cap": null,
+ "params": {
+  "keltner_mult": 1.5,
+  "max_hold": 10
+ },
+ "regime_gate": false,
+ "weight_mode": "equal"
+}

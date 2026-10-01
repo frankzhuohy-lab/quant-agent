@@ -1,0 +1,9 @@
+{
+ "generated_at": "2026-09-30",
+ "for_session": "next_trading_day",
+ "kind": "forward_intention",
+ "strategy": "champion",
+ "data_snapshot": "ad4c49b7fd69ec46",
+ "note": "纸面信号非自动交易；Keltner/到时出场由引擎每日重算，不在意图单列出。",
+ "buys": []
+}

@@ -1,0 +1,7 @@
+{
+  "hypothesis": "批次三（可执行现金口径）：regime_gate + exposure_cap=1.0 组合在 baseline_003 上的复现——部署形态首次在全约束口径下验证",
+  "change_scope": "regime_gate + exposure_cap",
+  "allowed_patch": {"regime_gate": true, "exposure_cap": 1.0},
+  "expected_effect": "DEV 回撤改善且 Sharpe 不低于基线；敞口在引擎与现金双层受控",
+  "rationale": "EXP_0003 为批次一唯一晋级组合形态，但从未在 PIT 宇宙+现金口径下验证"
+}

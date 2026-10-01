@@ -1,0 +1,14 @@
+# macOS / exFAT 垃圾文件
+._*
+.DS_Store
+__pycache__/
+*.pyc
+*.pyo
+
+# 本地环境与密钥（任何情况下不入库）
+.env
+*.pem
+*.key
+
+# 大体积运行缓存（产物已在 var/ 内随库交付；ucache 为可再生缓存）
+quant_agent/var/ucache/

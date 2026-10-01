@@ -1,0 +1,47 @@
+{
+ "meta": {
+  "costs": {
+   "buy": 0.004,
+   "sell": 0.005
+  },
+  "generated": "2026-09-30T21:08:29",
+  "spec": {
+   "K": 3,
+   "_approved_functions": [
+    "filt",
+    "score"
+   ],
+   "_exp_id": "exp_20260930_210829",
+   "allow_fewer": true,
+   "exposure_cap": null,
+   "filt": "R316_FLR+regime_gate",
+   "params": {
+    "keltner_mult": 1.5,
+    "max_hold": 10
+   },
+   "regime_gate": true,
+   "score": "score_r117_upvar",
+   "universe": null,
+   "weight_mode": "equal"
+  },
+  "window": "DEV",
+  "window_end": "2025-12-31",
+  "window_start": "2025-07-01"
+ },
+ "metrics": {
+  "annual_return": 0.2863,
+  "avg_exposure": 0.82,
+  "avg_holding_days": 9.49,
+  "calmar": 1.295,
+  "max_drawdown": -0.2211,
+  "n_trades": 108,
+  "payoff_ratio": 1.219,
+  "positive_days": 0.4048,
+  "sharpe": 0.821,
+  "sortino": 1.37,
+  "total_cost": 0.0756,
+  "total_return": 0.1341,
+  "turnover_x": 0.21,
+  "win_rate": 0.6019
+ }
+}

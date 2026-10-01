@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>做T纸面系统</title>
+<style>
+  :root {
+    --bg: #f5f5f7;
+    --card: #ffffff;
+    --hair: rgba(0,0,0,.08);
+    --hair-strong: rgba(0,0,0,.14);
+    --txt: #1d1d1f;
+    --txt2: #6e6e73;
+    --txt3: #86868b;
+    --blue: #0071e3;
+    --blue-soft: rgba(0,113,227,.1);
+    --green: #34c759;
+    --green-deep: #248a3d;
+    --green-soft: rgba(52,199,89,.12);
+    --red: #ff3b30;
+    --red-deep: #d70015;
+    --red-soft: rgba(255,59,48,.1);
+    --r-lg: 20px; --r-md: 14px; --r-sm: 10px;
+  }
+  * { box-sizing: border-box; margin: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg); color: var(--txt);
+    font: 15px/1.55 -apple-system, BlinkMacSystemFont, "SF Pro Text", "PingFang SC", "Helvetica Neue", "Microsoft YaHei", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    letter-spacing: .01em;
+  }
+  ::selection { background: var(--blue-soft); }
+
+  /* —— 毛玻璃吸顶栏 —— */
+  .nav {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(255,255,255,.72);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    backdrop-filter: saturate(180%) blur(20px);
+    border-bottom: 1px solid var(--hair);
+  }
+  .nav-in {
+    max-width: 1160px; margin: 0 auto; padding: 14px 24px;
+    display: flex; flex-wrap: wrap; align-items: baseline; gap: 10px 18px;
+  }
+  .nav h1 { font-size: 21px; font-weight: 700; letter-spacing: -.02em; }
+  .nav h1 .dot { color: var(--red); }
+  .nav .rules { color: var(--txt3); font-size: 12.5px; }
+  .nav .upd { margin-left: auto; color: var(--txt3); font-size: 12px; font-variant-numeric: tabular-nums; }
+
+  .wrap { max-width: 1160px; margin: 0 auto; padding: 24px 24px 40px; }
+
+  /* —— 信号横幅: iOS 通知质感 —— */
+  .signal {
+    background: var(--card); border-radius: var(--r-lg);
+    box-shadow: 0 1px 3px rgba(0,0,0,.05), 0 8px 28px rgba(0,0,0,.06);
+    padding: 18px 22px; margin-bottom: 20px;
+    border-left: 4px solid var(--green);
+    display: none;
+  }
+  .signal h2 {
+    font-size: 13px; font-weight: 600; color: var(--green-deep);
+    letter-spacing: .02em; margin-bottom: 8px;
+  }
+  .signal pre {
+    white-space: pre-wrap; font: 12.5px/1.7 "SF Mono", ui-monospace, Menlo, monospace;
+    color: var(--txt); max-height: 148px; overflow: auto;
+  }
+
+  /* —— 数据卡 —— */
+  .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(168px, 1fr)); gap: 14px; margin-bottom: 22px; }
+  .card {
+    background: var(--card); border-radius: var(--r-lg); padding: 18px 20px 16px;
+    box-shadow: 0 1px 3px rgba(0,0,0,.05), 0 8px 28px rgba(0,0,0,.06);
+    transition: transform .25s ease, box-shadow .25s ease;
+  }
+  .card:hover { transform: translateY(-2px); box-shadow: 0 2px 6px rgba(0,0,0,.06), 0 14px 40px rgba(0,0,0,.09); }
+  .card .k { font-size: 12.5px; color: var(--txt3); font-weight: 500; }
+  .card .v { font-size: 30px; font-weight: 700; letter-spacing: -.02em; margin-top: 4px; font-variant-numeric: tabular-nums; }
+  .card .s { font-size: 11.5px; color: var(--txt3); margin-top: 3px; }
+  .pos { color: var(--red-deep); } .neg { color: var(--green-deep); }
+
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  @media (max-width: 920px) { .grid2 { grid-template-columns: 1fr; } }
+
+  /* —— 面板 —— */
+  .panel {
+    background: var(--card); border-radius: var(--r-lg);
+    box-shadow: 0 1px 3px rgba(0,0,0,.05), 0 8px 28px rgba(0,0,0,.06);
+    padding: 22px 24px; margin-bottom: 20px;
+  }
+  .panel h2 { font-size: 17px; font-weight: 700; letter-spacing: -.01em; margin-bottom: 14px; }
+  .panel h2 .sub { font-size: 12.5px; font-weight: 400; color: var(--txt3); margin-left: 8px; }
+
+  table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+  th { text-align: left; padding: 6px 8px; color: var(--txt3); font-weight: 500; font-size: 12px; border-bottom: 1px solid var(--hair-strong); }
+  td { padding: 9px 8px; border-bottom: 1px solid var(--hair); }
+  tr:last-child td { border-bottom: none; }
+  td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
+
+  /* —— 柱状 —— */
+  .bar-row { display: flex; align-items: center; gap: 10px; margin: 6px 0; }
+  .bar-label { width: 64px; color: var(--txt2); font-size: 12.5px; font-variant-numeric: tabular-nums; }
+  .bar-track { flex: 1; display: flex; justify-content: flex-end; height: 22px; }
+  .bar-fill {
+    height: 100%; display: flex; align-items: center; justify-content: flex-end;
+    padding: 0 8px; font-size: 11.5px; font-weight: 600; color: #fff;
+    border-radius: 11px; font-variant-numeric: tabular-nums;
+  }
+  .bar-fill.p { background: var(--red); } .bar-fill.n { background: var(--green); }
+
+  /* —— 命中率: 三联大数字 —— */
+  .hit { display: flex; margin-bottom: 16px; border: 1px solid var(--hair); border-radius: var(--r-md); overflow: hidden; }
+  .hit .box { flex: 1; text-align: center; padding: 14px 8px 12px; }
+  .hit .box + .box { border-left: 1px solid var(--hair); }
+  .hit .box .k { font-size: 12px; color: var(--txt3); font-weight: 500; }
+  .hit .box .big { font-size: 26px; font-weight: 700; letter-spacing: -.02em; margin: 2px 0; font-variant-numeric: tabular-nums; }
+  .hit .box .s { font-size: 11px; color: var(--txt3); }
+
+  pre.rep {
+    white-space: pre-wrap; background: var(--bg); border-radius: var(--r-md);
+    padding: 14px 16px; font: 12px/1.7 "SF Mono", ui-monospace, Menlo, monospace;
+    color: var(--txt); max-height: 400px; overflow: auto;
+  }
+
+  /* —— 名单卡片 —— */
+  .pool { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 12px; }
+  .p-card { background: var(--bg); border-radius: var(--r-md); padding: 14px 16px; }
+  .p-card .nm { font-weight: 600; font-size: 14.5px; }
+  .tag { display: inline-block; font-size: 11px; font-weight: 600; padding: 2px 9px; border-radius: 99px; margin-left: 7px; vertical-align: 1px; }
+  .tag.res { background: var(--blue-soft); color: var(--blue); }
+  .tag.dyn { background: var(--green-soft); color: var(--green-deep); }
+  .p-card .zn { color: var(--txt2); font-size: 12.5px; margin-top: 5px; line-height: 1.6; }
+  .p-card .pd { color: var(--txt2); font-size: 12px; margin-top: 4px; }
+  .p2yes { color: var(--red-deep); font-weight: 600; }
+  .p2no { color: var(--green-deep); font-weight: 600; }
+  .muted { color: var(--txt3); }
+
+  details summary {
+    cursor: pointer; color: var(--blue); font-size: 14px; font-weight: 500;
+    padding: 4px 0; list-style: none;
+  }
+  details summary::-webkit-details-marker { display: none; }
+
+  .foot {
+    color: var(--txt3); font-size: 12px; margin-top: 26px;
+    border-top: 1px solid var(--hair); padding-top: 16px; line-height: 1.8;
+  }
+</style>
+</head>
+<body>
+<div class="nav">
+  <div class="nav-in">
+    <h1>做T纸面系统<span class="dot">.</span></h1>
+    <span class="rules" id="rules"></span>
+    <span class="upd" id="upd">加载中…</span>
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="signal" id="signalPanel">
+    <h2>🎯 今日买点信号 · 触发即提示</h2>
+    <pre id="sigLines"></pre>
+  </div>
+
+  <div class="cards" id="cards"></div>
+
+  <div class="grid2">
+    <div>
+      <div class="panel">
+        <h2>持仓明细<span class="sub">底仓 × 实时价 · 浮动盈亏</span></h2>
+        <table id="positions"><thead><tr>
+          <th>标的</th><th class="num">持股</th><th class="num">成本</th><th class="num">现价</th>
+          <th class="num">市值</th><th class="num">浮动盈亏</th><th class="num">收益率</th>
+        </tr></thead><tbody></tbody></table>
+      </div>
+      <div class="panel">
+        <h2>个股做T收益<span class="sub">已平回合按票聚合</span></h2>
+        <table id="tstats"><thead><tr>
+          <th>标的</th><th class="num">回合</th><th class="num">胜</th><th class="num">累计净收益</th><th class="num">笔均</th>
+        </tr></thead><tbody></tbody></table>
+      </div>
+      <div class="panel">
+        <h2>回合明细<span class="sub">最新在前</span></h2>
+        <table id="rounds"><thead><tr>
+          <th>日期</th><th>标的</th><th class="num">买 → 卖</th><th>离场</th><th class="num">净收益</th>
+        </tr></thead><tbody></tbody></table>
+      </div>
+      <div class="panel">
+        <h2>每日净利<span class="sub">回合加总</span></h2>
+        <div id="byday"></div>
+      </div>
+      <div class="panel">
+        <h2>账户每日盈亏<span class="sub">含底仓市值波动</span></h2>
+        <div id="accday"></div>
+      </div>
+      <div class="panel">
+        <h2>操作时间线<span class="sub">最近80条</span></h2>
+        <pre class="rep" id="alerts" style="max-height:280px"></pre>
+      </div>
+    </div>
+    <div>
+      <div class="panel">
+        <h2>预测对账<span class="sub">盘前预测 → 次日收盘打分</span></h2>
+        <div class="hit" id="hit"></div>
+        <table id="preds"><thead><tr>
+          <th>日期</th><th>标的</th><th>P1</th><th>P2</th><th>P3</th>
+        </tr></thead><tbody></tbody></table>
+        <div class="muted" id="pendNote" style="font-size:12.5px;margin-top:10px"></div>
+      </div>
+      <div class="panel" id="tmPanel">
+        <h2>隔日买入准备<span class="sub" id="tmDate"></span></h2>
+        <div class="pool" id="tmPool"></div>
+        <div class="muted" style="font-size:12px;margin-top:10px">
+          开盘价−0.6% 低吸 → +0.6% 高抛 · 止损−1.5% · 9:45 起 · 无信号不交易 · P2 = 预计是否触及低吸线
+        </div>
+      </div>
+      <div class="panel">
+        <h2>当前交易名单</h2>
+        <div class="pool" id="pool"></div>
+      </div>
+      <div class="panel">
+        <h2>最新收盘复盘</h2>
+        <pre class="rep" id="close" style="max-height:340px"></pre>
+      </div>
+    </div>
+  </div>
+
+  <div class="panel">
+    <details>
+      <summary>预测日志全文（协议 · 每期复盘 · 归因）</summary>
+      <pre class="rep" id="plog" style="max-height:560px;margin-top:12px"></pre>
+    </details>
+  </div>
+
+  <div class="foot" id="foot"></div>
+</div>
+
+<script>
+const esc = s => String(s == null ? '' : s).replace(/[&<>]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
+const pct = v => (v > 0 ? '+' : '') + v.toFixed(2) + '%';
+const cls = v => v > 0 ? 'pos' : (v < 0 ? 'neg' : '');
+const wan = n => n == null ? '—' : Math.round(n).toLocaleString('zh-CN');
+
+function render(d) {
+  document.getElementById('rules').textContent = d.rules || '';
+  document.getElementById('upd').textContent =
+    '更新于 ' + (d.generated_at || '') + ' · 每60秒自动刷新';
+
+  const st = d.stats || {};
+  const acc = d.account || {};
+  const lm = acc.last_mark || {};
+  const accPnl = (lm.total || acc.capital) - (acc.capital || 1000000);
+  const accRet = ((lm.total || acc.capital) / (acc.capital || 1000000) - 1) * 100;
+  document.getElementById('cards').innerHTML = [
+    ['累计净利', '<span class="' + cls(st.total_pnl) + '">' + pct(st.total_pnl || 0) + '</span>', '回合净收益加总'],
+    ['回合数', st.rounds || 0, (st.wins || 0) + ' 胜 · 自 09-15 实盘起'],
+    ['胜率', Math.round((st.win_rate || 0) * 100) + '%', st.rounds + ' 回合'],
+    ['笔均', '<span class="' + cls(st.avg) + '">' + pct(st.avg || 0) + '</span>', '单回合平均净收益'],
+    ['总资产', '<span class="' + cls(accRet) + '">' + wan(lm.total || acc.capital) + '</span>', '初始 100 万 · 收益率 ' + pct(accRet)],
+    ['可用现金', wan(acc.cash), '底仓 ' + Object.keys(acc.bases || {}).length + ' 只 × ≤15万'],
+  ].map(c => '<div class="card"><div class="k">' + c[0] + '</div><div class="v">' + c[1] + '</div><div class="s">' + c[2] + '</div></div>').join('');
+
+  document.querySelector('#positions tbody').innerHTML = (d.positions || []).map(p =>
+    '<tr><td>' + esc(p.name) + '</td>' +
+    '<td class="num">' + wan(p.shares) + '</td>' +
+    '<td class="num">' + esc(p.avg_cost) + '</td>' +
+    '<td class="num">' + (p.px != null ? esc(p.px) : '—') + '</td>' +
+    '<td class="num">' + (p.mv != null ? wan(p.mv) : '—') + '</td>' +
+    '<td class="num ' + (p.pnl != null ? cls(p.pnl) : '') + '">' + (p.pnl != null ? (p.pnl > 0 ? '+' : '') + wan(p.pnl) : '—') + '</td>' +
+    '<td class="num ' + (p.pct != null ? cls(p.pct) : '') + '">' + (p.pct != null ? pct(p.pct) : '—') + '</td></tr>').join('') ||
+    '<tr><td colspan="7" class="muted">当前无底仓</td></tr>';
+
+  document.querySelector('#tstats tbody').innerHTML = (d.tstats || []).map(s =>
+    '<tr><td>' + esc(s.name) + '</td>' +
+    '<td class="num">' + s.n + '</td>' +
+    '<td class="num">' + s.wins + '</td>' +
+    '<td class="num ' + cls(s.total) + '">' + pct(s.total) + '</td>' +
+    '<td class="num ' + cls(s.avg) + '">' + pct(s.avg) + '</td></tr>').join('') ||
+    '<tr><td colspan="5" class="muted">暂无已平回合</td></tr>';
+
+  document.querySelector('#rounds tbody').innerHTML = (d.rounds || []).map(r =>
+    '<tr><td>' + esc(r.date) + '</td><td>' + esc(r.name) + '</td>' +
+    '<td class="num">' + esc(r.entry_px) + ' → ' + esc(r.exit_px) + '</td>' +
+    '<td>' + esc(r.reason) + '</td>' +
+    '<td class="num ' + cls(r.ret_net) + '">' + pct(r.ret_net) + '</td></tr>').join('') ||
+    '<tr><td colspan="5" class="muted">暂无回合</td></tr>';
+
+  const bd = d.byDay || [];
+  const mx = Math.max(1, ...bd.map(x => Math.abs(x.pnl)));
+  document.getElementById('byday').innerHTML = bd.map(x => {
+    const w = Math.max(3, Math.round(Math.abs(x.pnl) / mx * 100));
+    return '<div class="bar-row"><div class="bar-label">' + esc(x.date.slice(4, 6) + '-' + x.date.slice(6)) +
+      '</div><div class="bar-track"><div class="bar-fill ' + (x.pnl >= 0 ? 'p' : 'n') + '" style="width:' + w + '%">' +
+      pct(x.pnl) + '</div></div></div>';
+  }).join('') || '<span class="muted">暂无数据</span>';
+
+  const vh = (acc.value_history || []);
+  const mx2 = Math.max(1, ...vh.map(x => Math.abs(x.pnl)));
+  document.getElementById('accday').innerHTML = vh.map(x => {
+    const w = Math.max(3, Math.round(Math.abs(x.pnl) / mx2 * 100));
+    return '<div class="bar-row"><div class="bar-label">' + esc(x.date.slice(4, 6) + '-' + x.date.slice(6)) +
+      '</div><div class="bar-track"><div class="bar-fill ' + (x.pnl >= 0 ? 'p' : 'n') + '" style="width:' + w + '%">' +
+      (x.pnl > 0 ? '+' : '') + wan(x.pnl) + '</div></div></div>';
+  }).join('') || '<span class="muted">暂无数据</span>';
+
+  const h = d.hit || {};
+  document.getElementById('hit').innerHTML = ['P1', 'P2', 'P3'].map(k => {
+    const ok = (h[k] || [0, 0])[0], n = (h[k] || [0, 0])[1];
+    const r = n ? Math.round(ok / n * 100) : 0;
+    return '<div class="box"><div class="k">' + k + '</div><div class="big ' +
+      (n && r >= 50 ? 'pos' : (n ? 'neg' : '')) + '">' + r + '%</div><div class="s">' + ok + ' / ' + n + '</div></div>';
+  }).join('');
+
+  document.querySelector('#preds tbody').innerHTML = (d.scored || []).map(p => {
+    const s = (p.score_result && p.score_result.score) || {};
+    const cell = k => {
+      const v = s[k];
+      if (!v) return '<span class="muted">—</span>';
+      if (v.verdict === '不计分' || v.verdict === '未触发不计分') return '<span class="muted">不计</span>';
+      return '<span class="' + (v.verdict === '对' ? 'pos' : 'neg') + '">' + esc(v.verdict) + '</span>';
+    };
+    return '<tr><td>' + esc((p.target_date || '').slice(5)) + '</td><td>' + esc(p.name) + '</td>' +
+      '<td>' + cell('P1') + '</td><td>' + cell('P2') + '</td><td>' + cell('P3') + '</td></tr>';
+  }).join('') || '<tr><td colspan="5" class="muted">暂无已打分预测</td></tr>';
+
+  document.getElementById('pendNote').textContent =
+    '待验证: ' + ((d.pending || []).map(p => esc(p.name)).join('、') || '无');
+
+  const tm = d.tomorrow || {};
+  document.getElementById('tmDate').textContent =
+    tm.date ? tm.date.slice(4, 6) + '-' + tm.date.slice(6) + (tm.zones_ready ? '' : ' · 价位区待生成') : '';
+  const predOf = {};
+  (tm.preds || []).forEach(p => { predOf[p.name] = p; });
+  document.getElementById('tmPool').innerHTML = (tm.pool || []).map(p => {
+    const pd = predOf[p.name];
+    const p2 = pd ? (pd.P2 === 'YES'
+      ? '<span class="p2yes">P2 预计触线</span>'
+      : '<span class="p2no">P2 预计不触线</span>') : '';
+    return '<div class="p-card"><span class="nm">' + esc(p.name) + '</span>' +
+      '<span class="tag ' + (p.resident ? 'res">常驻' : 'dyn">筛选' + (p.score ? ' ' + p.score + '分' : '')) + '</span>' +
+      '<div class="zn">' + (p.buy_lo != null
+        ? '低吸 ' + esc(p.buy_lo) + ' ~ ' + esc(p.buy_hi) + ' · 高抛 ' + esc(p.sell_lo) + ' ~ ' + esc(p.sell_hi) +
+          (p.regime ? ' · ' + esc(p.regime) : '')
+        : '<span class="muted">价位区待 9:20 生成</span>') + '</div>' +
+      (pd ? '<div class="pd">' + p2 + ' · P1 ' + esc(pd.P1) + ' · ' + esc((pd.rationale || '').slice(0, 44)) + '…</div>' : '') +
+      '</div>';
+  }).join('');
+
+  document.getElementById('pool').innerHTML = (d.pool || []).map(p =>
+    '<div class="p-card"><span class="nm">' + esc(p.name) + '</span>' +
+    '<span class="tag ' + (p.resident ? 'res">常驻' : 'dyn">筛选' + (p.score ? ' ' + p.score + '分' : '')) + '</span>' +
+    '<div class="zn">' + (p.buy_lo != null
+      ? '低吸 ' + esc(p.buy_lo) + ' ~ ' + esc(p.buy_hi) + ' · 高抛 ' + esc(p.sell_lo) + ' ~ ' + esc(p.sell_hi) +
+        (p.regime ? ' · ' + esc(p.regime) : '')
+      : '<span class="muted">今日价位区未生成</span>') + '</div></div>').join('');
+
+  const sig = d.signals || [];
+  document.getElementById('signalPanel').style.display = sig.length ? '' : 'none';
+  document.getElementById('sigLines').textContent = sig.join('\n');
+
+  document.getElementById('close').textContent = d.close_report || '今日收盘报告未生成';
+  document.getElementById('alerts').textContent = (d.alert_lines || []).join('\n') || '暂无操作流水';
+  document.getElementById('plog').textContent = d.predictions_log || '';
+  document.getElementById('foot').innerHTML =
+    '数据源 ~/.maket/ · launchd 9:20 计划 · 60 秒监控 · 15:05 结算+复筛 · 15:10 预测对账<br>' +
+    '规则依据: 开盘锚网格胜出四轮价位对决 · 止损为风险政策 · 实盘前需 4 周纸面样本外战绩 · 研究档案 bt_model_report.md';
+}
+
+function load() {
+  fetch('api/maket').then(r => r.json()).then(d => {
+    if (d.error) throw new Error(d.error);
+    render(d);
+  }).catch(e => {
+    document.getElementById('upd').textContent = '刷新失败: ' + e.message;
+  });
+}
+load();
+setInterval(load, 60000);
+</script>
+</body>
+</html>

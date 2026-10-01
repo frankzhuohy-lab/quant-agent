@@ -1,0 +1,24 @@
+{
+  "run_at": "2026-09-30 18:30:02",
+  "live": false,
+  "data_end": "2026-09-30",
+  "paper_start": "2026-08-24",
+  "exp0003": true,
+  "regime": {
+    "gate_pass": false,
+    "idx_vs_ma60": -0.1254,
+    "mom20": -0.0784
+  },
+  "nav": 1.0,
+  "closed_trades": 0,
+  "win_rate": null,
+  "today_buys": [],
+  "today_sells": [],
+  "open_positions": [],
+  "recent_closed": [],
+  "tomorrow": {
+    "filter_pass": false,
+    "picks": []
+  },
+  "exit_due_tomorrow": []
+}

@@ -1,0 +1,9 @@
+{
+  "pit_universe": {
+    "rule_id": "universe_rule_001",
+    "rule_hash": "706a53ca3b2924b4",
+    "snapshot_id": "31d677be6e555817",
+    "calendar_hash": "2e301098967bff95",
+    "note": "PIT 宇宙唯一注册版本。canonical['universe'] 只允许取本表键名@快照短哈希（如 pit_universe@31d677be）；更换宇宙=新增注册项+新批次，研究 Agent 无权自由更换。"
+  }
+}

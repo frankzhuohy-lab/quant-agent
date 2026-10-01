@@ -1,0 +1,57 @@
+{
+ "generated": "2026-09-30",
+ "expire": "2026-10-10",
+ "query": "今日成交额大于10亿元，涨跌幅在负6到2之间，股价大于3元的A股",
+ "universe_n": 200,
+ "pass_n": 5,
+ "stocks": [
+  {
+   "code": "600641",
+   "name": "先导基电",
+   "symbol": "sh600641",
+   "close": 48.57,
+   "ret20": 46.5,
+   "chg_today": -0.4,
+   "atr_pct": 6.1,
+   "dist20h": -7.6,
+   "red_candle": true,
+   "score": 68.6
+  },
+  {
+   "code": "600150",
+   "name": "中国船舶",
+   "symbol": "sh600150",
+   "close": 39.1,
+   "ret20": 13.6,
+   "chg_today": 0.4,
+   "atr_pct": 3.8,
+   "dist20h": -5.1,
+   "red_candle": true,
+   "score": 51.7
+  },
+  {
+   "code": "300548",
+   "name": "长芯博创",
+   "symbol": "sz300548",
+   "close": 219.83,
+   "ret20": 7.0,
+   "chg_today": 0.8,
+   "atr_pct": 6.3,
+   "dist20h": -11.3,
+   "red_candle": true,
+   "score": 51.5
+  },
+  {
+   "code": "688008",
+   "name": "澜起科技",
+   "symbol": "sh688008",
+   "close": 202.31,
+   "ret20": 2.0,
+   "chg_today": -4.8,
+   "atr_pct": 5.2,
+   "dist20h": -13.2,
+   "red_candle": true,
+   "score": 46.6
+  }
+ ]
+}

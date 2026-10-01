@@ -1,0 +1,7 @@
+变体,窗口,批次数,峰值并发,≥2并发天数,峰值并发天数,净盈亏(元)
+baseline,IS,5,3,18,7,-184.0
+baseline,DEV,4,4,11,7,203447.0
+A_keltner_off,IS,5,3,18,7,-736.0
+A_keltner_off,DEV,4,4,11,7,203447.0
+B_block_reentry,IS,3,1,0,0,-9757.0
+B_block_reentry,DEV,1,1,0,0,32242.0

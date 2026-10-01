@@ -1,0 +1,1 @@
+{"tool": "daily_forward", "experiment": "champion", "snapshot": "ad4c49b7fd69ec46", "range_read": ["2026-09-01", "2026-09-30"], "n_days": 21, "purpose": "forward_observation", "consumed_by_selection": false, "policy": "outputs -> var/forward only; research loop never reads them", "at": "2026-10-01T01:57:53"}

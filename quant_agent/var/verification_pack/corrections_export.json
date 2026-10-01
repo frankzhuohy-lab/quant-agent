@@ -1,0 +1,26 @@
+[
+ {
+  "experiment_id": "exp_20260930_210829",
+  "original_decision": "NEEDS_MORE_TESTING",
+  "corrected_interpretation": "原判定理由中含受污染证据：WF 第 9 折（2026-05-11..08-03，OOS 年化 -52.9%）为最差折并进入 Gate 理由，该折越入已降级区间，不能作为独立验证结论。未受污染的 DEV 证据单独亦足以拒绝：DEV 年化 +38.8% 低于基线 +239.0% 的 50% 线、Sharpe 1.01<2.75、回撤 -21.63% 未改善、bootstrap P(<=0)=0.994。后续 v5/v6 快照重跑为新的有效研究决策。",
+  "reason": "封存审计 B2 + 评审第 3/4 轮：污染证据与有效证据必须分列",
+  "corrected_at": "候选队列已移除（EXP_0002 方向证伪，由未污染证据独立支撑）；champion 指针不受影响",
+  "impact": "2026-10-01T02:52:18"
+ },
+ {
+  "experiment_id": "exp_20260930_224330",
+  "original_decision": "NEEDS_MORE_TESTING",
+  "corrected_interpretation": "原判定系 Gate 语义混用；证据完整且违反门槛应为 REJECT。该实验 WF 折 7-9 亦越入已降级区间（未改变原判定，但证据力同样受限）。有效拒绝依据（未污染）: DEV Sharpe 1.61<3.16、bootstrap P(<=0)=0.996、回撤劣于基线。引擎勘误后 v5/v6 重跑为新的有效研究决策。",
+  "reason": "Gate 语义澄清（第 3 轮）+ 污染证据分列（第 4 轮）",
+  "corrected_at": "champion 保持基线（baseline_003->004->005 依次重建）",
+  "impact": "2026-10-01T02:52:18"
+ },
+ {
+  "experiment_id": "ENGINE_R443",
+  "original_decision": "出场日末段收益双计（历史全部实验指标，截至 constitution_005）",
+  "corrected_interpretation": "qengine 持仓段循环条件 d+1<=xd 致末段重复计入 daily；修复为 d+1<xd 后 daily 累乘与交易 gross 一致（S8d 对账验证，IS 年化 -5.0%->-3.3% 即该修复的归因，见 batch6 消融）。",
+  "reason": "评审第 4 轮 S8 全链路对账发现",
+  "corrected_at": "历史实验绝对收益水平全部重述（baseline_005 重建 champion）；同一引擎版本内候选 vs 基线的相对比较方向仍有效",
+  "impact": "2026-10-01T02:52:18"
+ }
+]

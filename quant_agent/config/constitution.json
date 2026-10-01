@@ -1,0 +1,255 @@
+{
+ "version": "constitution_009",
+ "batch": "batch_009_state_gate",
+ "frozen_at": "2026-10-01",
+ "frozen_by": "francis_review_20261001_round3",
+ "note": "批次八（第三轮任务书）：冻结 10 日持有基线（baseline_006=baseline_005 语义，不再测试其他持有期）；预注册六个实验 E1-E6；候选信号数据集（含未成交候选的扣费标签）；二次评分（正则化线性+限深树，滚动训练）；月度统计四分列。 批次九（补足轮）：E5 产物补全；E6 阻塞补证（akshare 1.18.39 实测无历史成分接口）；E7 预注册：状态依赖日闸 filt_regime_off=mkt_mom20_pos（E5 证据：日闸状态依赖，趋势市放松/震荡市保留）。",
+ "windows": {
+  "IS": {
+   "start": null,
+   "end": "2025-06-30"
+  },
+  "DEV": {
+   "start": "2025-07-01",
+   "end": "2025-12-31"
+  },
+  "SEALED": {
+   "start": "2026-09-01",
+   "end": null
+  }
+ },
+ "sealed_holdout": {
+  "locked": true,
+  "start": "2026-09-01",
+  "demoted_range": "2026-01-01..2026-08-31",
+  "demoted_reason": "WF 折越入且结果进入 Gate 决策（sealed_access_audit.md 逐折记录）；按评审决议降级，不作未来独立证据",
+  "access": "independent_eval_only",
+  "note": "独立性由'零选择使用'保证而非日期切分；任何看过新封存结果后的策略变更都会使该区间失效。前向观察（daily_forward）不属选择使用，但其输出一旦进入研究循环即触发降级。 评审第 3 轮：九月前向观察（daily_forward）产出不进研究循环，访问逐次记录于 var/sealed_access_log.jsonl；未有任何策略/门槛/候选变更可追溯至这些观察。 引擎勘误（2026-10-01）: 出场日末段收益双计修复，所有指标绝对水平下修；比较口径对基线与候选一致。"
+ },
+ "execution_rules": {
+  "trade_at": "next_open",
+  "t_plus_1": true,
+  "cost_buy": 0.0002,
+  "cost_sell": 0.00025,
+  "limit_rule": "skip_buy_near_limit_up; defer_sell_near_limit_down",
+  "suspension_rule": "no_entry_when_suspended; exit_deferred_to_next_tradable",
+  "cash_account": {
+   "initial_cash_cny": 1000000,
+   "max_exposure": 1.0,
+   "lot_size": 100,
+   "note": "现金账户执行层（backtest/executor.py）：目标权重、敞口上限剩余、可用现金三者取最小 sizing，整手取整；不产生未经建模的融资。"
+  },
+  "min_fee_buy": 5.0,
+  "min_fee_sell": 5.0
+ },
+ "research_policy": {
+  "allowed_patch_fields": {
+   "K": {
+    "type": "int",
+    "min": 1,
+    "max": 10
+   },
+   "H": {
+    "type": "int",
+    "min": 1,
+    "max": 10
+   },
+   "score_fn": {
+    "type": "enum",
+    "values": [
+     "score_r117_upvar"
+    ]
+   },
+   "params": {
+    "type": "object",
+    "fields": {
+     "keltner_mult": {
+      "type": "float",
+      "min": 0.5,
+      "max": 4.0
+     },
+     "max_hold": {
+      "type": "int",
+      "min": 2,
+      "max": 30
+     }
+    }
+   },
+   "keltner_mult": {
+    "type": "float",
+    "min": 0.5,
+    "max": 4.0
+   },
+   "max_hold": {
+    "type": "int",
+    "min": 2,
+    "max": 30
+   },
+   "weight_mode": {
+    "type": "enum",
+    "values": [
+     "equal"
+    ]
+   },
+   "allow_fewer": {
+    "type": "bool"
+   },
+   "regime_gate": {
+    "type": "bool"
+   },
+   "exposure_cap": {
+    "type": "float_or_null",
+    "min": 0.2,
+    "max": 1.0
+   },
+   "exit_keltner": {
+    "type": "bool"
+   },
+   "block_reentry": {
+    "type": "bool"
+   },
+   "filt": {
+    "type": "enum",
+    "values": [
+     "R316_FLR",
+     "R316_FLR_off"
+    ]
+   },
+   "filt_regime_off": {
+    "type": "enum",
+    "values": [
+     null,
+     "mkt_mom20_pos"
+    ]
+   }
+  },
+  "llm_no_veto": true,
+  "critic_required": true,
+  "max_total_experiments": 100,
+  "stop_after_no_progress": 10,
+  "approved_functions": {
+   "score": [
+    "score_r117_upvar"
+   ],
+   "filt": [
+    "R316_FLR"
+   ]
+  },
+  "note": "allowed_patch_fields 为字段→校验规则字典（schema）。critic_required=true（评审决议）：Critic 不可用/未通过时不得 PROMOTE，不可用不等于豁免。"
+ },
+ "gates": {
+  "evidence_completeness": {
+   "required_windows": [
+    "IS",
+    "DEV"
+   ]
+  },
+  "promotion": {
+   "oos_sharpe_not_below_baseline": true,
+   "oos_dd_not_worse_than_baseline": true,
+   "oos_annual_at_least_baseline_fraction": 0.5,
+   "max_avg_exposure": 1.0,
+   "note": "全部门槛用 DEV 窗口（半年）；年化与 Sharpe 是短窗口指标，须结合 WF/压力/bootstrap 综合判断，不单凭一项 ACCEPT/REJECT。REJECT=证据完整但违反预设门槛；NEEDS_MORE_TESTING=证据缺失或流程缺席（如 Critic 不可用）——两者不混用（评审第 2 轮语义澄清）。"
+  },
+  "stability": {
+   "walk_forward_min_folds": 2,
+   "wf_worst_fold_oos_annual_min": -0.5,
+   "stress_cost_x2_oos_sharpe_min": 1.0
+  }
+ },
+ "budget": {
+  "max_trials_per_batch": 30,
+  "max_total_experiments": 100
+ },
+ "audit_trail": {
+  "save_full_config": true,
+  "save_input_data_snapshot": true,
+  "hash_method": "sha256"
+ },
+ "frozen_baseline": {
+  "tag": "baseline_006",
+  "equals": "baseline_005",
+  "hold_days": 10,
+  "spec": {
+   "K": 3,
+   "params": {
+    "keltner_mult": 1.5,
+    "max_hold": 10
+   },
+   "weight_mode": "equal",
+   "allow_fewer": true
+  },
+  "note": "入场/退出/成本/撮合规则全部冻结；新实验均与同一基线比较。"
+ },
+ "preregistered_experiments": {
+  "E1_per_stock_cap": {
+   "config": {
+    "per_stock_cap": 0.2
+   },
+   "semantics": "单股合计仓位上限20%（各批次合并计，仅限制新增买入，不因价格上涨自动卖出；允许重复买入）"
+  },
+  "E2_linear_rerank": {
+   "config": {
+    "model": "ridge",
+    "rerank": "within_topK"
+   },
+   "semantics": "候选内线性质量评分对基线每日 top-K 重新排序；每日选股数量与资金分配规则不变（顺序决定 capacity 约束下的成交优先）"
+  },
+  "E3_tree_rerank": {
+   "config": {
+    "model": "cart_depth4",
+    "rerank": "within_topK"
+   },
+   "semantics": "同 E2，模型换限深树（max_depth=4，min_samples_leaf=50）"
+  },
+  "E4_tiered_sizing": {
+   "config": {
+    "weights": "1:2:3",
+    "cutoffs": "train_period_only"
+   },
+   "semantics": "仅当评分在滚动验证中有效时执行；按训练期评分分界分档 1:2:3 归一化，遵守单股上限与现金约束",
+   "condition": "E2 或 E3 滚动验证单调性成立"
+  },
+  "E5_filter_ablation": {
+   "config": {
+    "target": "R316_FLR_day_gate",
+    "max": 1
+   },
+   "semantics": "仅对一个有明确证据的过严条件做消融（由候选数据集逐层过滤统计定位）"
+  },
+  "E6_universe_expand": {
+   "config": {
+    "pit_constituents": "required"
+   },
+   "semantics": "历史时点成分可靠才扩大覆盖；历史成分不足标记 BLOCKED，不用当前成分替代",
+   "evidence": "akshare 1.18.39 成分接口仅当前截面（index_stock_cons*），无 PIT 历史成分"
+  },
+  "E7_state_gate": {
+   "config": {
+    "filt_regime_off": "mkt_mom20_pos"
+   },
+   "semantics": "状态依赖日闸：filt 未通过且 t 日 mkt_mom20>0（事前可见）则放行；其余日子保持基线日闸。单变体，依据 E5 消融证据（DEV 趋势市放松增益、IS 震荡市保留有效）。"
+  }
+ },
+ "scoring": {
+  "v1": "ridge(纯 numpy 闭式解, L2)",
+  "v2": "CART 回归 (max_depth=4, min_samples_leaf=50, 确定性分裂)",
+  "features_source": "现有 feat/state（score,mom5/10/20,rs20,rs_chg5,rsi,atr20,vol5/vol20,dist20,upvar20,skew20,breadth,mkt_mom20,mkt_ret5）",
+  "features_blocked": "相对行业强弱（数据面无行业分类，标记阻塞，不伪造）",
+  "discipline": "滚动训练；标准化/缺失值处理/特征筛选只在训练集拟合；标签不跨入验证期；特征只用下单前信息(t=e-1)"
+ },
+ "decision": {
+  "priority": [
+   "多时段扣费收益/回撤/换手/盈利集中度",
+   "完整252交易日收益及达100%窗口比例",
+   "成本压力测试",
+   "剔除最大盈利股票后的表现"
+  ],
+  "promotion_block": [
+   "优势仅来自单只股票/单个月份/理想成交假设",
+   "重叠窗口计为独立成功",
+   "半年年化替代年度达标"
+  ],
+  "oos_rule": "已查看数据全部为研究数据；最终候选冻结后进入前瞻验证，不重命名样本外"
+ }
+}

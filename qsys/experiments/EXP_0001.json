@@ -1,0 +1,121 @@
+{
+ "hyp_id": "H1_exposure_cap",
+ "title": "组合敞口上限 100%（消除隐含杠杆）",
+ "change": "exposure_cap 1.0（原引擎理论敞口可达 ~200%）",
+ "one_variable": "仅加现金约束，不动信号/出场/参数",
+ "rationale": "Part6 发现 avg_exposure>100%；去杠杆降回撤，对信号零改动，过拟合风险最低",
+ "score_v_r_rob": [
+  4,
+  5,
+  5
+ ],
+ "note": "",
+ "ts": "2026-09-30T18:14:17.700107",
+ "baseline": {
+  "IS": {
+   "n_trades": 347,
+   "total_return": -0.3253,
+   "annual_return": -0.2026,
+   "sharpe": -0.45,
+   "sortino": -0.684,
+   "max_drawdown": -0.4153,
+   "calmar": -0.488,
+   "win_rate": 0.3862,
+   "payoff_ratio": 1.269,
+   "avg_holding_days": 8.95,
+   "turnover_x": 0.22,
+   "avg_exposure": 0.935,
+   "total_cost": 0.1332,
+   "positive_days": 0.3105
+  },
+  "OOS": {
+   "n_trades": 203,
+   "total_return": 2.8685,
+   "annual_return": 2.2013,
+   "sharpe": 2.447,
+   "sortino": 5.475,
+   "max_drawdown": -0.2373,
+   "calmar": 9.278,
+   "win_rate": 0.8079,
+   "payoff_ratio": 2.168,
+   "avg_holding_days": 9.74,
+   "turnover_x": 0.21,
+   "avg_exposure": 1.049,
+   "total_cost": 0.072,
+   "positive_days": 0.2628
+  }
+ },
+ "variant": {
+  "IS": {
+   "n_trades": 229,
+   "total_return": -0.0641,
+   "annual_return": -0.0374,
+   "sharpe": -0.012,
+   "sortino": -0.021,
+   "max_drawdown": -0.2714,
+   "calmar": -0.138,
+   "win_rate": 0.4148,
+   "payoff_ratio": 1.426,
+   "avg_holding_days": 8.97,
+   "turnover_x": 0.22,
+   "avg_exposure": 0.65,
+   "total_cost": 0.0918,
+   "positive_days": 0.3037
+  },
+  "OOS": {
+   "n_trades": 123,
+   "total_return": 1.015,
+   "annual_return": 0.8268,
+   "sharpe": 2.03,
+   "sortino": 3.891,
+   "max_drawdown": -0.2361,
+   "calmar": 3.502,
+   "win_rate": 0.7561,
+   "payoff_ratio": 1.716,
+   "avg_holding_days": 9.57,
+   "turnover_x": 0.21,
+   "avg_exposure": 0.662,
+   "total_cost": 0.0459,
+   "positive_days": 0.2662
+  }
+ },
+ "stress": {
+  "oos_cost_x2": {
+   "n_trades": 123,
+   "total_return": 0.925,
+   "annual_return": 0.7564,
+   "sharpe": 1.91,
+   "sortino": 3.618,
+   "max_drawdown": -0.2411,
+   "calmar": 3.137,
+   "win_rate": 0.7154,
+   "payoff_ratio": 1.921,
+   "avg_holding_days": 9.57,
+   "turnover_x": 0.21,
+   "avg_exposure": 0.662,
+   "total_cost": 0.0918,
+   "positive_days": 0.2526
+  },
+  "oos_cap100": {
+   "n_trades": 123,
+   "total_return": 1.015,
+   "annual_return": 0.8268,
+   "sharpe": 2.03,
+   "sortino": 3.891,
+   "max_drawdown": -0.2361,
+   "calmar": 3.502,
+   "win_rate": 0.7561,
+   "payoff_ratio": 1.716,
+   "avg_holding_days": 9.57,
+   "turnover_x": 0.21,
+   "avg_exposure": 0.662,
+   "total_cost": 0.0459,
+   "positive_days": 0.2662
+  }
+ },
+ "decision": "REJECT",
+ "reason": "OOS年化腰斩(220→83%)而回撤不降(-23.7→-23.6%)，去杠杆收益-风险比劣化；但记录关键洞察：原回测隐含~200%敞口，OOS高收益主要由杠杆放大，真实资金不可复制",
+ "_auto_hint": "OOS 收益腰斩 → 倾向 REJECT",
+ "seq": 1,
+ "id": "EXP_0001"
+}

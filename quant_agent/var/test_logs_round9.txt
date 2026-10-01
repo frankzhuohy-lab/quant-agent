@@ -1,0 +1,35 @@
+=== 9项回归测试原始日志 Thu Oct  1 10:00:38 CST 2026 ===
+--- test_timing ---
+PASS T3 tamper detected
+PASS T3b missing detected
+TIMING TESTS: ALL PASS
+--- test_execution ---
+PASS E5 exposure cap blocks entry
+PASS E4b window-cut marked (no fabricated fill)
+EXECUTION TESTS: ALL PASS
+--- test_recovery ---
+PASS R3 transaction + terminal immutability
+PASS R4 failed experiments retained with full events
+RECOVERY TESTS: ALL PASS
+--- test_e5_execution ---
+E5 execution: trades=228 skipped=77 avg_exp=0.332 max_exp=1.000 engine_avg_exp=0.905
+E5 执行测试全部通过
+--- test_e6_cash_linkage ---
+E6 linkage: cash_min=49990 breach_days=5 trades=1
+E6-5 最低收费边界通过（挡下/可成交/比例解/回验/集成）
+E6 现金-持仓联动测试全部通过
+--- test_snapshot_immutability ---
+  （篡改检出确认: 冻结清单机制能发现冻结侧改动）
+S7 快照不可变性测试全部通过（覆盖/追加/删建/替换 四种源更新）
+--- test_s8_lookahead ---
+S8-2b 因果窗口响应确认（8 笔 xd>21 订单随未来行情变化）
+S8-3 退出响应后续行情通过（11/14 笔 A 出场按解析期望变动，B 全不变）
+S8 前视因果性测试全部通过
+--- test_s8_streaming_diff ---
+  停牌日入场丢弃 ✓；次日入场独立批次 xe=33=23+10 ✓
+  涨停复核跳过: 无成交、现金不动、跳过原因留痕 ✓
+S8d/S8e 全部通过
+--- test_s9_sealed_guard ---
+S9-1 拒跑通过: run_window 拒绝越界: 窗口末端 2026-09-30 触及封存区间(起点 2026-09-01)；研究流程不得计算封存数据
+S9-2 放行路径通过（sealed_eval 语义，计算已截断）
+S9 封存硬约束测试全部通过

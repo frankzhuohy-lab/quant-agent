@@ -1,0 +1,9 @@
+{
+ "config": {
+  "rt_cost": 0.0012,
+  "stop_pct": 0.015,
+  "max_rounds": 2
+ },
+ "rounds": [],
+ "open": {}
+}

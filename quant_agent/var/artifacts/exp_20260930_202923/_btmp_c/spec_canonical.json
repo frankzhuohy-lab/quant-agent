@@ -1,0 +1,18 @@
+{
+ "K": 3,
+ "_approved_functions": [
+  "filt",
+  "score"
+ ],
+ "_exp_id": "exp_20260930_202923",
+ "allow_fewer": true,
+ "exposure_cap": null,
+ "filt": "R316_FLR+regime_gate",
+ "params": {
+  "keltner_mult": 1.5,
+  "max_hold": 10
+ },
+ "regime_gate": true,
+ "score": "score_r117_upvar",
+ "weight_mode": "equal"
+}

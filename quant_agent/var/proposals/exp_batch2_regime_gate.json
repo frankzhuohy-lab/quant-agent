@@ -1,0 +1,9 @@
+{
+  "hypothesis": "批次二复现：PIT宇宙上测试趋势门控（regime_gate），验证批次一结论在无幸存者偏差口径下是否稳健",
+  "change_scope": "regime_gate",
+  "allowed_patch": {"regime_gate": true},
+  "expected_effect": "DEV 回撤改善而 Sharpe 不降（批次一 EXP_0002 方向）",
+  "failure_conditions": ["DEV Sharpe 低于基线", "回撤劣化超 2pp", "成本×2 Sharpe<1.0", "WF最差折年化<-50%"],
+  "required_tests": ["rolling_validation", "cost_stress"],
+  "evidence_path": "batch_001 EXP_0002 (ACCEPT) + var/batch2_survivorship.md"
+}

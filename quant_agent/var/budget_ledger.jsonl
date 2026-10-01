@@ -1,0 +1,35 @@
+{"ts": "2026-10-01T06:13:25", "trial": "EXP_A_keltner_off", "kind": "variant", "note": "实验A: 显式关闭 Keltner 条件退出（exit_keltner=True）全组合重跑"}
+{"ts": "2026-10-01T06:13:25", "trial": "EXP_A_counterfactual", "kind": "diagnostic", "note": "实验A反事实: 相同入场/数量仅替换退出日（诊断，非组合收益）"}
+{"ts": "2026-10-01T06:13:25", "trial": "EXP_B_block_reentry", "kind": "variant", "note": "实验B: 已有该证券未平仓批次时不再新增入场"}
+{"ts": "2026-10-01T06:13:50", "trial": "EXP_A_keltner_off", "kind": "variant", "note": "实验A: 显式关闭 Keltner 条件退出（exit_keltner=True）全组合重跑"}
+{"ts": "2026-10-01T06:13:50", "trial": "EXP_A_counterfactual", "kind": "diagnostic", "note": "实验A反事实: 相同入场/数量仅替换退出日（诊断，非组合收益）"}
+{"ts": "2026-10-01T06:13:50", "trial": "EXP_B_block_reentry", "kind": "variant", "note": "实验B: 已有该证券未平仓批次时不再新增入场"}
+{"ts": "2026-10-01T06:15:33", "trial": "CORRECTION", "kind": "process", "note": "EXP_A/EXP_B 首次运行因 adapter.materialize 未透传实验开关而变为基线重跑（无效试验，不计证据）；开关透传修复后重跑，本次两条无效记录保留作审计追溯。"}
+{"ts": "2026-10-01T06:15:47", "trial": "EXP_A_keltner_off", "kind": "variant", "note": "实验A: 显式关闭 Keltner 条件退出（exit_keltner=True）全组合重跑"}
+{"ts": "2026-10-01T06:15:47", "trial": "EXP_A_counterfactual", "kind": "diagnostic", "note": "实验A反事实: 相同入场/数量仅替换退出日（诊断，非组合收益）"}
+{"ts": "2026-10-01T06:15:47", "trial": "EXP_B_block_reentry", "kind": "variant", "note": "实验B: 已有该证券未平仓批次时不再新增入场"}
+{"ts": "2026-10-01T06:16:19", "trial": "CORRECTION2", "kind": "process", "note": "EXP_A 二次运行无效：引擎读取 spec.keltner_off 而 adapter 透传 exit_keltner，命名不一致致开关未生效；已统一为 exit_keltner。重跑。"}
+{"ts": "2026-10-01T06:16:32", "trial": "EXP_A_keltner_off", "kind": "variant", "note": "实验A: 显式关闭 Keltner 条件退出（exit_keltner=True）全组合重跑"}
+{"ts": "2026-10-01T06:16:32", "trial": "EXP_A_counterfactual", "kind": "diagnostic", "note": "实验A反事实: 相同入场/数量仅替换退出日（诊断，非组合收益）"}
+{"ts": "2026-10-01T06:16:33", "trial": "EXP_B_block_reentry", "kind": "variant", "note": "实验B: 已有该证券未平仓批次时不再新增入场"}
+{"ts": "2026-10-01T06:18:45", "trial": "EXP_A_keltner_off", "kind": "variant", "note": "实验A: 显式关闭 Keltner 条件退出（exit_keltner=True）全组合重跑"}
+{"ts": "2026-10-01T06:18:45", "trial": "EXP_A_counterfactual", "kind": "diagnostic", "note": "实验A反事实: 相同入场/数量仅替换退出日（诊断，非组合收益）"}
+{"ts": "2026-10-01T06:18:45", "trial": "EXP_B_block_reentry", "kind": "variant", "note": "实验B: 已有该证券未平仓批次时不再新增入场"}
+{"ts": "2026-10-01T07:59:15", "trial": "ROUND2_REBUILD", "kind": "process", "note": "第五轮核验统计修正复跑（tid/缺失清单/重叠口径/滚动年度窗口/敞口统一）：不计新试验，A/B 结果不变仅统计修正"}
+{"ts": "2026-10-01T07:59:15", "trial": "EXP_H3_maxhold8", "kind": "variant", "note": "H3 敏感性: max_hold=8（基线10），检验持有期稳健性"}
+{"ts": "2026-10-01T07:59:15", "trial": "EXP_H3_maxhold12", "kind": "variant", "note": "H3 敏感性: max_hold=12（基线10），检验持有期稳健性"}
+{"ts": "2026-10-01T07:59:48", "trial": "ROUND2_REBUILD", "kind": "process", "note": "第五轮核验统计修正复跑（tid/缺失清单/重叠口径/滚动年度窗口/敞口统一）：不计新试验，A/B 结果不变仅统计修正"}
+{"ts": "2026-10-01T07:59:49", "trial": "EXP_H3_maxhold8", "kind": "variant", "note": "H3 敏感性: max_hold=8（基线10），检验持有期稳健性"}
+{"ts": "2026-10-01T07:59:49", "trial": "EXP_H3_maxhold12", "kind": "variant", "note": "H3 敏感性: max_hold=12（基线10），检验持有期稳健性"}
+{"ts": "2026-10-01T09:03:04", "trial": "FREEZE_round3", "kind": "process", "note": "constitution_008: 基线冻结清单 154 文件，E1-E6 预注册"}
+{"ts": "2026-10-01T09:07:49", "trial": "EXP_E1_per_stock_cap20", "kind": "variant", "note": "E1: 单股合计仓位上限20%（仅限制新增买入）"}
+{"ts": "2026-10-01T09:07:49", "trial": "EXP_E2_ridge_rank", "kind": "variant", "note": "E2_ridge_rank: ridge 质量评分当日意图降序（选股数量与sizing不变）"}
+{"ts": "2026-10-01T09:07:49", "trial": "EXP_E3_cart_rank", "kind": "variant", "note": "E3_cart_rank: cart 质量评分当日意图降序（选股数量与sizing不变）"}
+{"ts": "2026-10-01T09:08:13", "trial": "EXP_E1_per_stock_cap20", "kind": "variant", "note": "E1: 单股合计仓位上限20%（仅限制新增买入）"}
+{"ts": "2026-10-01T09:08:13", "trial": "EXP_E2_ridge_rank", "kind": "variant", "note": "E2_ridge_rank: ridge 质量评分当日意图降序（选股数量与sizing不变）"}
+{"ts": "2026-10-01T09:08:13", "trial": "EXP_E3_cart_rank", "kind": "variant", "note": "E3_cart_rank: cart 质量评分当日意图降序（选股数量与sizing不变）"}
+{"ts": "2026-10-01T09:11:04", "trial": "EXP_E5_filt_gate_ablation", "kind": "variant", "note": "E5: 消融 R316_FLR 日闸（唯一有过严证据的条件）"}
+{"ts": "2026-10-01T09:11:04", "trial": "EXP_E6_universe_expand", "kind": "blocked", "note": "E6: 无历史成分数据，PIT 无法保证，标记 BLOCKED 不执行"}
+{"ts": "2026-10-01T10:00:56", "trial": "EXP_E5_filt_gate_ablation", "kind": "variant", "note": "E5: 消融 R316_FLR 日闸（唯一有过严证据的条件）"}
+{"ts": "2026-10-01T10:00:56", "trial": "EXP_E6_universe_expand", "kind": "blocked", "note": "E6: 无历史成分数据，PIT 无法保证，标记 BLOCKED 不执行"}
+{"ts": "2026-10-01T10:01:10", "trial": "EXP_E7_state_gate", "kind": "variant", "note": "E7: 状态依赖日闸 filt_regime_off=mkt_mom20_pos（E5 证据驱动）"}

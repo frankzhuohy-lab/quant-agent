@@ -1,0 +1,40 @@
+=== E8 批次十实验 + 9项回归 Fri Oct  9 16:29:16 CST 2026 ===
+  c /= stddev[:, None]
+  c /= stddev[None, :]
+Traceback (most recent call last):
+  File "/Volumes/项目空间/projects/quant-paper/quant_agent/exp_round6.py", line 192, in <module>
+    sys.exit(main())
+             ~~~~^^
+  File "/Volumes/项目空间/projects/quant-paper/quant_agent/exp_round6.py", line 84, in main
+    e8 = {label: run_window(ctx, sm1, kw1, *ctx.windows[label], er_cfg)
+                 ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/项目空间/projects/quant-paper/quant_agent/backtest/runner.py", line 164, in run_window
+    run = qengine.run_r443(
+        ctx.stocks, ctx.codes, ctx.feat, ctx.state, ctx.common, ctx.susp,
+        e0, e1, w2, spec,
+        cost_buy=er["cost_buy"], cost_sell=er["cost_sell"],
+        exposure_cap=kw.get("exposure_cap"))
+  File "/Volumes/项目空间/projects/quant-paper/qsys/qengine.py", line 181, in run_r443
+    gate = _style_mom_bypass(state, common, t)
+  File "/Volumes/项目空间/projects/quant-paper/qsys/qengine.py", line 70, in _style_mom_bypass
+    mu_s, sd_s = float(np.mean(xs)), float(np.std(xs)) or 1.0
+                       ^^
+NameError: name 'np' is not defined
+---回归---
+test_timing: TIMING TESTS: ALL PASS
+test_execution: EXECUTION TESTS: ALL PASS
+test_recovery: RECOVERY TESTS: ALL PASS
+test_e5_execution: E5 执行测试全部通过
+test_e6_cash_linkage: E6 现金-持仓联动测试全部通过
+test_snapshot_immutability: S7 快照不可变性测试全部通过（覆盖/追加/删建/替换 四种源更新）
+test_s8_lookahead: S8 前视因果性测试全部通过
+test_s8_streaming_diff: S8d/S8e 全部通过
+test_s9_sealed_guard: S9 封存硬约束测试全部通过
+=== E8 批次十实验重跑 Fri Oct  9 16:30:00 CST 2026 ===
+  c /= stddev[:, None]
+  c /= stddev[None, :]
+OK -> /Volumes/项目空间/projects/quant-paper/quant_agent/var/exp_round6
+---回归抽查---
+test_timing: TIMING TESTS: ALL PASS
+test_snapshot_immutability: S7 快照不可变性测试全部通过（覆盖/追加/删建/替换 四种源更新）
+test_s8_lookahead: S8 前视因果性测试全部通过

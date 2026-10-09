@@ -33,3 +33,4 @@
 {"ts": "2026-10-01T10:00:56", "trial": "EXP_E5_filt_gate_ablation", "kind": "variant", "note": "E5: 消融 R316_FLR 日闸（唯一有过严证据的条件）"}
 {"ts": "2026-10-01T10:00:56", "trial": "EXP_E6_universe_expand", "kind": "blocked", "note": "E6: 无历史成分数据，PIT 无法保证，标记 BLOCKED 不执行"}
 {"ts": "2026-10-01T10:01:10", "trial": "EXP_E7_state_gate", "kind": "variant", "note": "E7: 状态依赖日闸 filt_regime_off=mkt_mom20_pos（E5 证据驱动）"}
+{"ts": "2026-10-09T16:30:14", "trial": "EXP_E8_state_gate_v2", "kind": "variant", "note": "E8: 组合状态门 state_bypass=style_mom_q75（风格价差+动量，IS 估计）"}

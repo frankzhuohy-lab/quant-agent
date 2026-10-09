@@ -1,9 +1,9 @@
 {
- "version": "constitution_009",
- "batch": "batch_009_state_gate",
+ "version": "constitution_010",
+ "batch": "batch_010_state_gate_v2",
  "frozen_at": "2026-10-01",
  "frozen_by": "francis_review_20261001_round3",
- "note": "批次八（第三轮任务书）：冻结 10 日持有基线（baseline_006=baseline_005 语义，不再测试其他持有期）；预注册六个实验 E1-E6；候选信号数据集（含未成交候选的扣费标签）；二次评分（正则化线性+限深树，滚动训练）；月度统计四分列。 批次九（补足轮）：E5 产物补全；E6 阻塞补证（akshare 1.18.39 实测无历史成分接口）；E7 预注册：状态依赖日闸 filt_regime_off=mkt_mom20_pos（E5 证据：日闸状态依赖，趋势市放松/震荡市保留）。",
+ "note": "批次十：依据 market_study_20261008 研究备忘录（β(上证)1.45~2.56 >> β(SOX)0.05~0.35，风格价差+动量符号先验明确）预注册 E8 组合状态门。E7（单指标 mkt_mom20）已 REJECT，不在其基础上调参。",
  "windows": {
   "IS": {
    "start": null,
@@ -121,6 +121,13 @@
      null,
      "mkt_mom20_pos"
     ]
+   },
+   "state_bypass": {
+    "type": "enum",
+    "values": [
+     null,
+     "style_mom_q75"
+    ]
    }
   },
   "llm_no_veto": true,
@@ -229,6 +236,22 @@
     "filt_regime_off": "mkt_mom20_pos"
    },
    "semantics": "状态依赖日闸：filt 未通过且 t 日 mkt_mom20>0（事前可见）则放行；其余日子保持基线日闸。单变体，依据 E5 消融证据（DEV 趋势市放松增益、IS 震荡市保留有效）。"
+  },
+  "E8_state_gate_v2": {
+   "config": {
+    "state_bypass": "style_mom_q75"
+   },
+   "semantics": "组合状态门：风格价差(科创50-上证 20日收益差)z分 + 指数动量z分，z 参数与放行阈值(75分位)均在 IS 段(<=2025-06-30)估计后固定；filt(R316_FLR)未通过且组合分>阈值时放行当日，其余规则与基线一致",
+   "features_pit": {
+    "style20": "t日收盘后可见（var/state_features/state_features_daily.csv）",
+    "mom20": "引擎既有 state[\"mkt_mom20\"]，t日收盘后可见"
+   },
+   "excluded_by_discipline": [
+    "crowd20 拥挤度（符号先验不确定）",
+    "breadth 宽度（历史数据源不可得）"
+   ],
+   "evidence_basis": "var/market_study_20261008/research_memo.md 第五节",
+   "one_variant_only": true
   }
  },
  "scoring": {

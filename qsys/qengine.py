@@ -16,9 +16,91 @@
 from __future__ import print_function
 import math
 
+try:
+    import numpy as np  # E8 状态门参数估计（IS 分位数/均值方差）
+except ImportError:  # pragma: no cover - 纯 stdlib 回退
+    np = None
+
+
+def _mean_sd(xs):
+    n = len(xs)
+    mu = sum(xs) / n
+    var = sum((x - mu) ** 2 for x in xs) / n
+    return mu, (math.sqrt(var) or 1.0)
+
+
+def _percentile(xs, q):
+    xs = sorted(xs)
+    if np is not None:
+        return float(np.percentile(xs, q))
+    k = (len(xs) - 1) * q / 100.0
+    f = math.floor(k)
+    c = math.ceil(k)
+    if f == c:
+        return xs[int(k)]
+    return xs[f] * (c - k) + xs[c] * (k - f)
+
 
 def band_of(code):
     return 0.195 if code.startswith(("688", "300", "301")) else 0.095
+
+
+def _style_state_load():
+    """加载 E8 状态特征（date -> style20），惰性加载 + 进程内缓存。
+
+    特征文件由 quant_agent/research/build_state_features.py 从公开行情重建;
+    style20/mom20 均为 t 日收盘后可见, 满足 PIT。mom20 来自引擎既有 state。
+    """
+    global _STYLE_CACHE
+    if _STYLE_CACHE is not None:
+        return _STYLE_CACHE
+    import csv as _csv
+    import os as _os
+    path = _os.path.join(
+        _os.path.dirname(_os.path.dirname(_os.path.abspath(__file__))),
+        "quant_agent", "var", "state_features", "state_features_daily.csv")
+    m = {}
+    with open(path, encoding="utf-8-sig") as f:
+        for row in _csv.DictReader(f):
+            if row.get("style20"):
+                m[row["date"]] = float(row["style20"])
+    _STYLE_CACHE = m
+    return m
+
+
+_STYLE_CACHE = None
+_STYLE_PARMS = {}          # mu/sigma/thr，按 IS 段一次性估计后冻结
+IS_END = "2025-06-30"      # constitution 冻结窗口: IS 截止
+
+
+def _style_mom_bypass(state, common, t):
+    """E8(style_mom_q75): S(t)=z_IS(style20)+z_IS(mom20) > thr_IS(75%) 则放行。"""
+    style = _style_state_load()
+    mm = state.get("mkt_mom20")
+    if mm is None or t >= len(common) or common[t] not in style \
+            or t >= len(mm) or mm[t] is None:
+        return False
+    if "thr" not in _STYLE_PARMS:
+        xs, ys = [], []
+        for i, d in enumerate(common):
+            if d > IS_END or d not in style:
+                continue
+            v = mm[i] if i < len(mm) else None
+            if v is not None:
+                xs.append(style[d])
+                ys.append(v)
+        if len(xs) < 100:
+            return False
+        mu_s, sd_s = _mean_sd(xs)
+        mu_m, sd_m = _mean_sd(ys)
+        s_is = [(a - mu_s) / sd_s + (b - mu_m) / sd_m for a, b in zip(xs, ys)]
+        _STYLE_PARMS.update({"mu_s": mu_s, "sd_s": sd_s,
+                             "mu_m": mu_m, "sd_m": sd_m,
+                             "thr": _percentile(s_is, 75)})
+    p = _STYLE_PARMS
+    s_t = ((style[common[t]] - p["mu_s"]) / p["sd_s"]
+           + (mm[t] - p["mu_m"]) / p["sd_m"])
+    return bool(s_t > p["thr"])
 
 
 def plan_exit(stocks, feat, susp, common, code, e, max_hold, kelt,
@@ -108,6 +190,19 @@ def run_r443(stocks, codes, feat, state, common, susp,
             mm = state.get("mkt_mom20")
             gate = bool(mm is not None and t < len(mm)
                         and mm[t] is not None and mm[t] > 0)
+        # E8 组合状态门（批次十 constitution_010 预注册；默认 None=基线语义）。
+        # 规则 style_mom_q75（全部事前固定，不允许看结果后调整）:
+        #   特征(t): style20 = 20日收益(科创50) - 20日收益(上证),
+        #            mom20  = state["mkt_mom20"][t]（下单前一日收盘可见）;
+        #   z 标准化参数与放行阈值均用 IS 段（<=2025-06-30，constitution 窗口）
+        #   估计（同 E4 "训练期确定阈值"纪律），对 DEV 是固定变换;
+        #   filt 未通过且 z(style20)+z(mom20) > IS 75 分位 → 放行当日。
+        # 依据: research_memo(2026-10-08) —— β(上证)1.45~2.56 >> β(SOX)0.05~0.35,
+        # 风格价差与动量符号先验明确; 拥挤度符号先验不确定、宽度数据不可得,
+        # 均按纪律不纳入。
+        sb = spec.get("state_bypass")
+        if not gate and sb == "style_mom_q75":
+            gate = _style_mom_bypass(state, common, t)
         if not gate:
             continue
         scores = score_fn(feat, codes, t)

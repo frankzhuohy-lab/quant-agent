@@ -1701,7 +1701,32 @@
   "P3": "YES",
   "rationale": "+7.06%大反弹收47.19, 乖离+6.3%, ret20转正+5.9%趋势修复; 但prev_ret+7.06%过热(H3质量因子); 信心低中",
   "date_made": "2026-09-30T15:14",
-  "status": "pending"
+  "status": "scored",
+  "score_result": {
+   "pred_id": "20261008-1",
+   "name": "石药创新",
+   "date": "2026-10-08",
+   "actual_chg": -4.43,
+   "line_touched": true,
+   "target_hit": false,
+   "score": {
+    "P1": {
+     "pred": "UP",
+     "actual": "DOWN",
+     "verdict": "错"
+    },
+    "P2": {
+     "pred": "YES",
+     "actual": true,
+     "verdict": "对"
+    },
+    "P3": {
+     "pred": "YES",
+     "actual": false,
+     "verdict": "错"
+    }
+   }
+  }
  },
  {
   "id": "20261008-2",
@@ -1713,7 +1738,32 @@
   "P3": "NO",
   "rationale": "超声模式3/4: 乖离+30.5%极端延伸+连任第4天; 假期外围若平稳则阴跌延续; 信心低中",
   "date_made": "2026-09-30T15:14",
-  "status": "pending"
+  "status": "scored",
+  "score_result": {
+   "pred_id": "20261008-2",
+   "name": "先导基电",
+   "date": "2026-10-08",
+   "actual_chg": -6.69,
+   "line_touched": true,
+   "target_hit": true,
+   "score": {
+    "P1": {
+     "pred": "DOWN",
+     "actual": "DOWN",
+     "verdict": "对"
+    },
+    "P2": {
+     "pred": "YES",
+     "actual": true,
+     "verdict": "对"
+    },
+    "P3": {
+     "pred": "NO",
+     "actual": true,
+     "verdict": "错"
+    }
+   }
+  }
  },
  {
   "id": "20261008-3",
@@ -1725,7 +1775,30 @@
   "P3": "YES",
   "rationale": "回池, 乖离+1.5%贴MA20, ret20+13.6%, 09-30达标; 信心中",
   "date_made": "2026-09-30T15:14",
-  "status": "pending"
+  "status": "scored",
+  "score_result": {
+   "pred_id": "20261008-3",
+   "name": "中国船舶",
+   "date": "2026-10-08",
+   "actual_chg": 1.82,
+   "line_touched": false,
+   "target_hit": true,
+   "score": {
+    "P1": {
+     "pred": "UP",
+     "actual": "UP",
+     "verdict": "对"
+    },
+    "P2": {
+     "pred": "YES",
+     "actual": false,
+     "verdict": "错"
+    },
+    "P3": {
+     "verdict": "未触发不计分"
+    }
+   }
+  }
  },
  {
   "id": "20261008-4",
@@ -1737,7 +1810,32 @@
   "P3": "YES",
   "rationale": "乖离+0.4%贴MA20, ret20+7.0%, 09-28曾-7.8%深坑已修复; 信心中",
   "date_made": "2026-09-30T15:14",
-  "status": "pending"
+  "status": "scored",
+  "score_result": {
+   "pred_id": "20261008-4",
+   "name": "长芯博创",
+   "date": "2026-10-08",
+   "actual_chg": -13.37,
+   "line_touched": true,
+   "target_hit": false,
+   "score": {
+    "P1": {
+     "pred": "UP",
+     "actual": "DOWN",
+     "verdict": "错"
+    },
+    "P2": {
+     "pred": "YES",
+     "actual": true,
+     "verdict": "对"
+    },
+    "P3": {
+     "pred": "YES",
+     "actual": false,
+     "verdict": "错"
+    }
+   }
+  }
  },
  {
   "id": "20261008-5",
@@ -1749,6 +1847,256 @@
   "P3": "YES",
   "rationale": "乖离+0.9%贴MA20, 但prev_ret-4.84%大跌日(超声变体风险); 信心低",
   "date_made": "2026-09-30T15:14",
+  "status": "scored",
+  "score_result": {
+   "pred_id": "20261008-5",
+   "name": "澜起科技",
+   "date": "2026-10-08",
+   "actual_chg": -2.62,
+   "line_touched": true,
+   "target_hit": true,
+   "score": {
+    "P1": {
+     "pred": "UP",
+     "actual": "DOWN",
+     "verdict": "错"
+    },
+    "P2": {
+     "pred": "YES",
+     "actual": true,
+     "verdict": "对"
+    },
+    "P3": {
+     "pred": "YES",
+     "actual": true,
+     "verdict": "对"
+    }
+   }
+  }
+ },
+ {
+  "id": "20261009-1",
+  "target_date": "2026-10-09",
+  "symbol": "sz300765",
+  "name": "石药创新",
+  "P1": "UP",
+  "P2": "YES",
+  "P3": "YES",
+  "rationale": "（补录）原定10-08 15:10发布于predictions_log.md, json簿记遗漏今日补记",
+  "date_made": "2026-10-08T15:10",
+  "status": "scored",
+  "score_result": {
+   "actual_chg": 0.67,
+   "score": {
+    "P1": {
+     "pred": "UP",
+     "actual": "UP",
+     "verdict": "对"
+    },
+    "P2": {
+     "pred": "YES",
+     "actual": true,
+     "verdict": "对"
+    },
+    "P3": {
+     "pred": "YES",
+     "actual": true,
+     "verdict": "对"
+    }
+   }
+  },
+  "backfilled": "2026-10-09"
+ },
+ {
+  "id": "20261009-2",
+  "target_date": "2026-10-09",
+  "symbol": "sz300207",
+  "name": "欣旺达",
+  "P1": "UP",
+  "P2": "YES",
+  "P3": "YES",
+  "rationale": "（补录）原定10-08 15:10发布于predictions_log.md, json簿记遗漏今日补记",
+  "date_made": "2026-10-08T15:10",
+  "status": "scored",
+  "score_result": {
+   "actual_chg": -3.91,
+   "score": {
+    "P1": {
+     "pred": "UP",
+     "actual": "DOWN",
+     "verdict": "错"
+    },
+    "P2": {
+     "pred": "YES",
+     "actual": true,
+     "verdict": "对"
+    },
+    "P3": {
+     "pred": "YES",
+     "actual": true,
+     "verdict": "对"
+    }
+   }
+  },
+  "backfilled": "2026-10-09"
+ },
+ {
+  "id": "20261009-3",
+  "target_date": "2026-10-09",
+  "symbol": "sz000002",
+  "name": "万科Ａ",
+  "P1": "DOWN",
+  "P2": "YES",
+  "P3": "NO",
+  "rationale": "（补录）原定10-08 15:10发布于predictions_log.md, json簿记遗漏今日补记",
+  "date_made": "2026-10-08T15:10",
+  "status": "scored",
+  "score_result": {
+   "actual_chg": 0.0,
+   "score": {
+    "P1": {
+     "pred": "DOWN",
+     "actual": "FLAT",
+     "verdict": "不计"
+    },
+    "P2": {
+     "pred": "YES",
+     "actual": true,
+     "verdict": "对"
+    },
+    "P3": {
+     "pred": "NO",
+     "actual": false,
+     "verdict": "对"
+    }
+   }
+  },
+  "backfilled": "2026-10-09"
+ },
+ {
+  "id": "20261009-4",
+  "target_date": "2026-10-09",
+  "symbol": "sh600150",
+  "name": "中国船舶",
+  "P1": "UP",
+  "P2": "YES",
+  "P3": "YES",
+  "rationale": "（补录）原定10-08 15:10发布于predictions_log.md, json簿记遗漏今日补记",
+  "date_made": "2026-10-08T15:10",
+  "status": "scored",
+  "score_result": {
+   "actual_chg": -3.19,
+   "score": {
+    "P1": {
+     "pred": "UP",
+     "actual": "DOWN",
+     "verdict": "错"
+    },
+    "P2": {
+     "pred": "YES",
+     "actual": true,
+     "verdict": "对"
+    },
+    "P3": {
+     "pred": "YES",
+     "actual": true,
+     "verdict": "对"
+    }
+   }
+  },
+  "backfilled": "2026-10-09"
+ },
+ {
+  "id": "20261009-5",
+  "target_date": "2026-10-09",
+  "symbol": "sh603259",
+  "name": "药明康德",
+  "P1": "UP",
+  "P2": "YES",
+  "P3": "YES",
+  "rationale": "（补录）原定10-08 15:10发布于predictions_log.md, json簿记遗漏今日补记",
+  "date_made": "2026-10-08T15:10",
+  "status": "scored",
+  "score_result": {
+   "actual_chg": -2.59,
+   "score": {
+    "P1": {
+     "pred": "UP",
+     "actual": "DOWN",
+     "verdict": "错"
+    },
+    "P2": {
+     "pred": "YES",
+     "actual": true,
+     "verdict": "对"
+    },
+    "P3": {
+     "pred": "YES",
+     "actual": false,
+     "verdict": "错"
+    }
+   }
+  },
+  "backfilled": "2026-10-09"
+ },
+ {
+  "id": "20261013-1",
+  "target_date": "2026-10-13",
+  "symbol": "sz300765",
+  "name": "石药创新",
+  "P1": "UP",
+  "P2": "YES",
+  "P3": "YES",
+  "rationale": "prev_ret+0.67%平稳, 乖离+2.1%健康, ret20转正+2.6%修复中, 近5日4/5触线; 信心中",
+  "date_made": "2026-10-09T15:14",
+  "status": "pending"
+ },
+ {
+  "id": "20261013-2",
+  "target_date": "2026-10-13",
+  "symbol": "sz300207",
+  "name": "欣旺达",
+  "P1": "UP",
+  "P2": "YES",
+  "P3": "YES",
+  "rationale": "池内最佳样本(6/6触线全达标), 但prev_ret-3.91%回落日(质量风险); 信心低中",
+  "date_made": "2026-10-09T15:14",
+  "status": "pending"
+ },
+ {
+  "id": "20261013-3",
+  "target_date": "2026-10-13",
+  "symbol": "sz300450",
+  "name": "先导智能",
+  "P1": "UP",
+  "P2": "YES",
+  "P3": "YES",
+  "rationale": "新入池, ret20+14.5%, 乖离+13.8%偏高, prev_ret-2.29%回落日; 信心低",
+  "date_made": "2026-10-09T15:14",
+  "status": "pending"
+ },
+ {
+  "id": "20261013-4",
+  "target_date": "2026-10-13",
+  "symbol": "sz002074",
+  "name": "国轩高科",
+  "P1": "UP",
+  "P2": "YES",
+  "P3": "YES",
+  "rationale": "ret20+16.3%, 乖离+13.2%偏高, prev_ret-2.84%回落日; 信心低",
+  "date_made": "2026-10-09T15:14",
+  "status": "pending"
+ },
+ {
+  "id": "20261013-5",
+  "target_date": "2026-10-13",
+  "symbol": "sh601872",
+  "name": "招商轮船",
+  "P1": "UP",
+  "P2": "YES",
+  "P3": "YES",
+  "rationale": "回池(09-15首战+1.23%), ret20+14.4%, 乖离+6.6%, prev_ret+0.18%平稳; 信心中",
+  "date_made": "2026-10-09T15:14",
   "status": "pending"
  }
 ]

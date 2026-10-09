@@ -124,9 +124,20 @@ def _registry():
     global _REGISTRY
     if _REGISTRY is None:
         import quant_iter44 as q44
+        import quant_iter26 as q26
         import qanalyze
         _REGISTRY = {
-            "score": {"score_r117_upvar": q44.score_r117_upvar},
+            "score": {"score_r117_upvar": q44.score_r117_upvar,
+                      # 批次十一 E9 因子族（constitution_011 预注册；
+                      # quant_iter26 历史迭代库，全部为事前既有实现，非新造）
+                      "score_shape": q26.score_shape,
+                      "score_resrev": q26.score_resrev,
+                      "score_rankjump": q26.score_rankjump,
+                      "score_lowprice": q26.score_lowprice,
+                      "score_maalign": q26.score_maalign,
+                      "score_asym": q26.score_asym,
+                      "score_x266": q26.score_x266,
+                      "score_r117": q26.score_r117},
             "filt": {"R316_FLR": lambda: q44.make_filt_flr("R316_FLR"),
                      # E5 预注册消融开关（constitution_008 E5）: 关闭日闸，
                      # 仅用于候选数据集逐层过滤证据定位后的单条件消融。
@@ -140,6 +151,7 @@ def _registry():
 
 BASE_PATCH = {
     "K": 3,
+    "score_fn": "score_r117_upvar",
     "params": {"keltner_mult": 1.5, "max_hold": 10},
     "weight_mode": "equal",
     "allow_fewer": True,
@@ -183,7 +195,7 @@ def materialize(norm_patch, stocks, codes, common, universe=None):
     reg = _registry()
     approved = {"score", "filt"}
     spec = r443_spec()
-    spec["score"] = reg["score"]["score_r117_upvar"]
+    spec["score"] = reg["score"][norm_patch.get("score_fn", "score_r117_upvar")]
     spec["filt"] = reg["filt"][norm_patch.get("filt", "R316_FLR")]()
     spec["K"] = norm_patch["K"]
     spec["filt_regime_off"] = norm_patch.get("filt_regime_off")
@@ -238,7 +250,7 @@ def materialize(norm_patch, stocks, codes, common, universe=None):
                     universe_tag = "%s@%s" % (key, ent["snapshot_id"][:8])
                     break
     canonical = {
-        "score": "score_r117_upvar",
+        "score": norm_patch.get("score_fn", "score_r117_upvar"),
         "filt": norm_patch.get("filt", "R316_FLR") +
                 ("+regime_gate" if norm_patch["regime_gate"] else ""),
         "K": norm_patch["K"],

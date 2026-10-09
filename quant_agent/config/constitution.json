@@ -1,9 +1,9 @@
 {
- "version": "constitution_010",
- "batch": "batch_010_state_gate_v2",
+ "version": "constitution_011",
+ "batch": "batch_011_factor_family",
  "frozen_at": "2026-10-01",
  "frozen_by": "francis_review_20261001_round3",
- "note": "批次十：依据 market_study_20261008 研究备忘录（β(上证)1.45~2.56 >> β(SOX)0.05~0.35，风格价差+动量符号先验明确）预注册 E8 组合状态门。E7（单指标 mkt_mom20）已 REJECT，不在其基础上调参。",
+ "note": "批次十一：E9 因子族。评分（信号质量）是唯一未被证伪的改进方向（E5=机会范围非瓶颈，E7/E8=状态门样本内即失败，E1/E2/E3=执行/排序无效）。quant_iter26 历史迭代库 8 个事前既有评分函数（含基线），整族同批、全部披露、不做挑选；状态门方向按 E7/E8 两连败关闭。",
  "windows": {
   "IS": {
    "start": null,
@@ -57,7 +57,15 @@
    "score_fn": {
     "type": "enum",
     "values": [
-     "score_r117_upvar"
+     "score_r117_upvar",
+     "score_shape",
+     "score_resrev",
+     "score_rankjump",
+     "score_lowprice",
+     "score_maalign",
+     "score_asym",
+     "score_x266",
+     "score_r117"
     ]
    },
    "params": {
@@ -252,6 +260,27 @@
    ],
    "evidence_basis": "var/market_study_20261008/research_memo.md 第五节",
    "one_variant_only": true
+  },
+  "E9_factor_family": {
+   "config": {
+    "score_fn": [
+     "score_r117_upvar",
+     "score_shape",
+     "score_resrev",
+     "score_rankjump",
+     "score_lowprice",
+     "score_maalign",
+     "score_asym",
+     "score_x266",
+     "score_r117"
+    ],
+    "n_variants": 9
+   },
+   "semantics": "仅替换 score_fn（信号生成），filt/出场/K/资金分配全部保持基线；8 个评分函数全部为 quant_iter26/44 历史迭代库事前既有实现，非本批次新造；整族同跑、全部披露、不做事后挑选",
+   "family_disclosure": "整族 9 变体同批测试，检出风险如实披露：按冻结 Gate 判定，任何变体晋级须过与基线相同的门槛；同族多 variant 的偶然达标风险在报告注明",
+   "excluded": [
+    "新增自造因子（ researcher 自由度纪律：不现场造因子事后挑）"
+   ]
   }
  },
  "scoring": {

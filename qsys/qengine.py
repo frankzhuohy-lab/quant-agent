@@ -72,6 +72,44 @@ _STYLE_CACHE = None
 _STYLE_PARMS = {}          # mu/sigma/thr，按 IS 段一次性估计后冻结
 IS_END = "2025-06-30"      # constitution 冻结窗口: IS 截止
 
+_FUND_CACHE = None
+
+
+def _fund_load():
+    """E10 基本面特征：code -> [(usable_date, np_yoy)] 升序。惰性+缓存。"""
+    global _FUND_CACHE
+    if _FUND_CACHE is not None:
+        return _FUND_CACHE
+    import csv as _csv
+    import os as _os
+    path = _os.path.join(
+        _os.path.dirname(_os.path.dirname(_os.path.abspath(__file__))),
+        "quant_agent", "var", "fund_features", "fund_features_daily.csv")
+    m = {}
+    if _os.path.exists(path):
+        with open(path, encoding="utf-8-sig") as f:
+            for row in _csv.DictReader(f):
+                v = (row.get("np_yoy") or "").strip()
+                if v:
+                    m.setdefault(row["code"], []).append(
+                        (row["date"], float(v)))
+    _FUND_CACHE = m
+    return m
+
+
+def _fund_np_yoy_pos(fund, code, d_t):
+    """最新可用（<=d_t）扣非净利润同比 > 0。无数据/不可比 → False（保守剔除）。"""
+    seq = fund.get(code)
+    if not seq:
+        return False
+    best = None
+    for d, v in seq:
+        if d <= d_t:
+            best = v
+        else:
+            break
+    return best is not None and best > 0
+
 
 def _style_mom_bypass(state, common, t):
     """E8(style_mom_q75): S(t)=z_IS(style20)+z_IS(mom20) > thr_IS(75%) 则放行。"""
@@ -206,6 +244,19 @@ def run_r443(stocks, codes, feat, state, common, susp,
         if not gate:
             continue
         scores = score_fn(feat, codes, t)
+        # E10 基本面闸（批次十二 constitution_012 预注册；默认 None=基线）:
+        # fund_gate=np_yoy_pos → 候选（有限评分者）的最新可用扣非净利润
+        # 同比须 > 0，否则评分置为 -1e9（逐出候选）。np_yoy 可用日按法定
+        # 披露截止口径（build_fund_features.py）；无数据保守剔除。
+        # 局限：新浪接口为重述后序列，非当时披露原值（报告已披露）。
+        fg = spec.get("fund_gate")
+        if fg == "np_yoy_pos" and scores:
+            _fund = _fund_load()
+            _d_t = common[t]
+            scores = {c: (s if (s <= -1e8 or
+                                _fund_np_yoy_pos(_fund, c, _d_t))
+                          else -1e9)
+                      for c, s in scores.items()}
         # 原始信号 = 当日横截面有限评分的全部候选（K 截断之前）
         raw = [c for c in scores if scores[c] > -1e8]
         raw_sorted = sorted(raw, key=lambda c: (-scores[c], c))

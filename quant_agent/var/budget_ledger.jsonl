@@ -43,3 +43,4 @@
 {"ts": "2026-10-10T00:20:22", "trial": "EXP_E9_score_asym", "kind": "variant", "note": "E9 因子族: score_fn=score_asym（整族 9 变体同批）"}
 {"ts": "2026-10-10T00:20:22", "trial": "EXP_E9_score_x266", "kind": "variant", "note": "E9 因子族: score_fn=score_x266（整族 9 变体同批）"}
 {"ts": "2026-10-10T00:20:22", "trial": "EXP_E9_score_r117", "kind": "variant", "note": "E9 因子族: score_fn=score_r117（整族 9 变体同批）"}
+{"ts": "2026-10-10T03:35:59", "trial": "EXP_E10_fund_gate", "kind": "variant", "note": "E8: 组合状态门 state_bypass=style_mom_q75（新浪季度财务，法定截止 PIT，重述序列局限已披露）"}

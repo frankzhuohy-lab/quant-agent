@@ -160,6 +160,7 @@ BASE_PATCH = {
     "filt": "R316_FLR",
     "filt_regime_off": None,
     "state_bypass": None,
+    "fund_gate": None,
 }
 
 
@@ -200,6 +201,7 @@ def materialize(norm_patch, stocks, codes, common, universe=None):
     spec["K"] = norm_patch["K"]
     spec["filt_regime_off"] = norm_patch.get("filt_regime_off")
     spec["state_bypass"] = norm_patch.get("state_bypass")
+    spec["fund_gate"] = norm_patch.get("fund_gate")
     spec["params"] = {"keltner_mult": norm_patch["params"]["keltner_mult"],
                       "max_hold": norm_patch["params"]["max_hold"]}
     spec["weight_mode"] = norm_patch["weight_mode"]
@@ -260,6 +262,7 @@ def materialize(norm_patch, stocks, codes, common, universe=None):
         "regime_gate": norm_patch["regime_gate"],
         "exposure_cap": norm_patch.get("exposure_cap"),
         "state_bypass": norm_patch.get("state_bypass"),
+        "fund_gate": norm_patch.get("fund_gate"),
         "universe": universe_tag,
         "execution": ("cash" if json.load(open(quant_agent.CONFIG))
                       ["execution_rules"].get("cash_account") else "weight"),

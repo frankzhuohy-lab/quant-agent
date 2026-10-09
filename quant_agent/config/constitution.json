@@ -1,9 +1,9 @@
 {
- "version": "constitution_011",
- "batch": "batch_011_factor_family",
+ "version": "constitution_012",
+ "batch": "batch_012_fundamental_gate",
  "frozen_at": "2026-10-01",
  "frozen_by": "francis_review_20261001_round3",
- "note": "批次十一：E9 因子族。评分（信号质量）是唯一未被证伪的改进方向（E5=机会范围非瓶颈，E7/E8=状态门样本内即失败，E1/E2/E3=执行/排序无效）。quant_iter26 历史迭代库 8 个事前既有评分函数（含基线），整族同批、全部披露、不做挑选；状态门方向按 E7/E8 两连败关闭。",
+ "note": "批次十二：E10 基本面闸。免费数据源（新浪季度财务指标，重述后序列——前视污染局限已披露，结论需打折）。因子族（E9）与状态门（E7/E8）证伪后，基本面是当前数据边界内最后一块未触动的信号信息。",
  "windows": {
   "IS": {
    "start": null,
@@ -135,6 +135,13 @@
     "values": [
      null,
      "style_mom_q75"
+    ]
+   },
+   "fund_gate": {
+    "type": "enum",
+    "values": [
+     null,
+     "np_yoy_pos"
     ]
    }
   },
@@ -281,6 +288,16 @@
    "excluded": [
     "新增自造因子（ researcher 自由度纪律：不现场造因子事后挑）"
    ]
+  },
+  "E10_fund_gate": {
+   "config": {
+    "fund_gate": "np_yoy_pos"
+   },
+   "semantics": "在基线评分之上加硬过滤：候选的最新可用（法定披露截止口径）扣非净利润同比须>0，否则逐出候选；评分/出场/资金规则不变",
+   "data_source": "新浪财经财务指标（季度，ak.stock_financial_analysis_indicator）",
+   "pit_rule": "Q1→04-30, H1→08-31, Q3→10-31, FY→次年04-30（法定截止，保守）",
+   "limitations": "新浪返回重述后历史序列而非当时披露原值，存在温和前视污染；免费源无当时披露值通道，E10 为方向探索而非严格验证",
+   "one_variant_only": true
   }
  },
  "scoring": {

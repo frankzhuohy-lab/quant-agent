@@ -1,0 +1,14 @@
+=== E10 基本面闸 Sat Oct 10 03:35:45 CST 2026 ===
+  c /= stddev[:, None]
+  c /= stddev[None, :]
+OK -> /Volumes/项目空间/projects/quant-paper/quant_agent/var/exp_round8
+---回归---
+test_timing: TIMING TESTS: ALL PASS
+test_execution: EXECUTION TESTS: ALL PASS
+test_recovery: RECOVERY TESTS: ALL PASS
+test_e5_execution: E5 执行测试全部通过
+test_e6_cash_linkage: E6 现金-持仓联动测试全部通过
+test_snapshot_immutability: S7 快照不可变性测试全部通过（覆盖/追加/删建/替换 四种源更新）
+test_s8_lookahead: S8 前视因果性测试全部通过
+test_s8_streaming_diff: S8d/S8e 全部通过
+test_s9_sealed_guard: S9 封存硬约束测试全部通过

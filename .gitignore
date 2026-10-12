@@ -12,3 +12,8 @@ __pycache__/
 
 # 大体积运行缓存（产物已在 var/ 内随库交付；ucache 为可再生缓存）
 quant_agent/var/ucache/
+
+# qwide 大数据产物
+qwide/cache/
+qwide/panel/*.parquet
+qwide/code_list.json

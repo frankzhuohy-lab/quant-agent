@@ -1,0 +1,29 @@
+{
+ "V1_false_break": {
+  "n_events": 105421,
+  "n_dates": 403,
+  "excess_fwd5_mean": -0.00343,
+  "t_stat": -3.32,
+  "verdict": "FAIL"
+ },
+ "V2_pressure": {
+  "overall": 0.025,
+  "by_period": {
+   "DEV": 0.0519,
+   "IS": 0.0373,
+   "degrade": -0.0051
+  },
+  "n_days": 403,
+  "verdict": "PASS"
+ },
+ "V3_struct": {
+  "overall": -0.0589,
+  "by_period": {
+   "DEV": -0.0608,
+   "IS": -0.0702,
+   "degrade": -0.0492
+  },
+  "n_days": 403,
+  "verdict": "FAIL"
+ }
+}

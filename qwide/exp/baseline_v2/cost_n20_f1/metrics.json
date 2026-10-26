@@ -1,0 +1,37 @@
+{
+ "n": 20,
+ "freq": 1,
+ "trades": 11520,
+ "fee_total": 146565.0,
+ "turnover_total": 647561966.0,
+ "final_equity": 1048765.0,
+ "ALL": {
+  "days": 393,
+  "net_ann": 0.0286,
+  "sharpe": 0.239,
+  "maxdd": -0.2636,
+  "total_ret": 0.0465
+ },
+ "IS": {
+  "days": 73,
+  "net_ann": 0.4136,
+  "sharpe": 1.462,
+  "maxdd": -0.1578,
+  "total_ret": 0.1091
+ },
+ "DEV": {
+  "days": 126,
+  "net_ann": 0.259,
+  "sharpe": 1.593,
+  "maxdd": -0.0622,
+  "total_ret": 0.1204
+ },
+ "degrade": {
+  "days": 160,
+  "net_ann": -0.1763,
+  "sharpe": -0.594,
+  "maxdd": -0.2636,
+  "total_ret": -0.1304
+ },
+ "verdict": "PASS"
+}

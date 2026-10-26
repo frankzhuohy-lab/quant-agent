@@ -88,14 +88,47 @@ def _load_codes_push2():
     return out
 
 
+def _fetch_ifzq(sysm, n):
+    """备用镜像：web.ifzq.gtimg.cn（proxy 被限流 501 时切换）。"""
+    from qdata import http_get
+    url = ("https://web.ifzq.gtimg.cn/appstock/app/fqkline/get"
+           "?param=%s,day,,,%d,qfq" % (sysm, n))
+    d = json.loads(http_get(url).decode("utf-8", "ignore"))
+    dd = d["data"][sysm]
+    return dd.get("qfqday") or dd.get("day") or []
+
+
+def _fetch_sina(sysm, n):
+    """第三通道：新浪 qfq（akshare）。双腾讯镜像 501 限流时使用。
+    返回与腾讯一致的 bars 格式 [date,open,close,high,low,vol(手)]。"""
+    import akshare as ak
+    df = ak.stock_zh_a_daily(symbol=sysm, adjust="qfq")
+    if df is None or len(df) == 0:
+        return []
+    df = df.tail(n)
+    return [[str(r["date"]), "%.3f" % r["open"], "%.3f" % r["close"],
+             "%.3f" % r["high"], "%.3f" % r["low"],
+             "%.3f" % (r["volume"] / 100.0)] for _, r in df.iterrows()]
+
+
 def fetch_one(sysm, retries=4):
-    from qdata import fetch_kline_q, FETCH_DAYS
+    from qdata import fetch_kline_q
     last = None
     for i in range(retries):
         try:
-            return fetch_kline_q(sysm, BARS)
+            bars = fetch_kline_q(sysm, BARS)
+            if bars:
+                return bars
+            raise RuntimeError("empty bars")
         except Exception as e:
             last = e
+            for fallback in (_fetch_ifzq, _fetch_sina):
+                try:
+                    bars = fallback(sysm, BARS)
+                    if bars:
+                        return bars
+                except Exception as e2:
+                    last = e2
             time.sleep(1.5 * (i + 1))
     if last is None:
         raise RuntimeError("fetch_kline_q returned without data")

@@ -17,3 +17,5 @@ quant_agent/var/ucache/
 qwide/cache/
 qwide/panel/*.parquet
 qwide/code_list.json
+
+qwide/exp/**/pred.parquet

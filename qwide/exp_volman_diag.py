@@ -49,6 +49,8 @@ def rank_ic(df, col):
 def main():
     os.makedirs(OUTDIR, exist_ok=True)
     df = pd.read_parquet(FEATS)
+    for col in ("pressure", "struct", "fwd5"):
+        df[col] = df[col].replace([np.inf, -np.inf], np.nan)
     df = df[(df["date"] >= np.datetime64("2025-01-01")) & (df["date"] < SEALED)]
     rep = {}
 

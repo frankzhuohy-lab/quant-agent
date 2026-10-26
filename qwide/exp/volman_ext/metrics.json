@@ -1,0 +1,63 @@
+{
+ "fwd1": {
+  "n_days": 360,
+  "ic_mean": 0.0348,
+  "ic_std": 0.1264,
+  "ic_ir": 0.275,
+  "ic_gt0_pct": 0.622
+ },
+ "fwd5": {
+  "n_days": 360,
+  "ic_mean": 0.0457,
+  "ic_std": 0.1146,
+  "ic_ir": 0.399,
+  "ic_gt0_pct": 0.669
+ },
+ "ls1_daily": {
+  "n_days": 360,
+  "ic_mean": 0.0015,
+  "ic_std": 0.0111,
+  "ic_ir": 0.133,
+  "ic_gt0_pct": 0.544
+ },
+ "ls5_daily": {
+  "n_days": 360,
+  "ic_mean": 0.0047,
+  "ic_std": 0.0243,
+  "ic_ir": 0.196,
+  "ic_gt0_pct": 0.597
+ },
+ "ic1_by_period": {
+  "DEV": 0.0317,
+  "IS": 0.0398,
+  "degrade": 0.035
+ },
+ "ic5_by_period": {
+  "DEV": 0.041,
+  "IS": 0.0615,
+  "degrade": 0.0422
+ },
+ "ls1_ann_by_period": {
+  "DEV": 0.2143,
+  "IS": 0.4812,
+  "degrade": 0.4222
+ },
+ "zcols": [
+  "z_mom5",
+  "z_mom10",
+  "z_mom20",
+  "z_mom60",
+  "z_rev1",
+  "z_maxret5",
+  "z_vol20",
+  "z_vol60",
+  "z_skew20",
+  "z_bias20",
+  "z_hl20",
+  "z_amihud20",
+  "z_turn20",
+  "z_liq",
+  "z_lp",
+  "z_pressure"
+ ]
+}

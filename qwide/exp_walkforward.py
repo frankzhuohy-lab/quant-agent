@@ -77,7 +77,7 @@ def main():
         te0, te1 = day_start[i], day_start[i + 1] if i + 1 < len(dates) else len(df)
         Xtr = X[tr0:tr1]
         ytr = y1[tr0:tr1]
-        mtr = ~np.isnan(Xtr).any(1) & ~np.isnan(ytr)
+        mtr = np.isfinite(Xtr).all(1) & np.isfinite(ytr)
         if mtr.sum() < 5000:
             continue
         Xtr = Xtr[mtr].astype(np.float64)
@@ -90,7 +90,7 @@ def main():
         A = Xs.T @ Xs + 10.0 * np.eye(len(zcols))
         w = np.linalg.solve(A, Xs.T @ yc)
         Xte = X[te0:te1]
-        mte = ~np.isnan(Xte).any(1)
+        mte = np.isfinite(Xte).all(1)
         if mte.sum() < 500:
             continue
         Xe = (Xte[mte].astype(np.float64) - mu) / sd

@@ -20,17 +20,18 @@ def _get(url, referer, retries=6, timeout=20):
     return None
 
 
-def fetch_sse():
-    """上交所主板（60 开头）。"""
+def fetch_sse(stock_type=1, prefixes=("60",)):
+    """上交所股票列表。stock_type=1 主板 A（60），8 科创板（688/689）。"""
     out = {}
     page = 1
     while True:
         url = ("https://query.sse.com.cn/sseQuery/commonQuery.do?"
-               "STOCK_TYPE=1&REG_PROVINCE=&CSRC_CODE=&STOCK_CODE=&"
+               "STOCK_TYPE=%d&REG_PROVINCE=&CSRC_CODE=&STOCK_CODE=&"
                "sqlId=COMMON_SSE_CP_GPJCTPZ_GPLB_GP_L&COMPANY_STATUS=2,4,5,7,8"
                "&type=inParams&isPagination=true&pageHelp.cacheSize=1"
                "&pageHelp.beginPage=%d&pageHelp.pageSize=200"
-               "&pageHelp.pageNo=%d&pageHelp.endPage=%d" % (page, page, page))
+               "&pageHelp.pageNo=%d&pageHelp.endPage=%d"
+               % (stock_type, page, page, page))
         d = _get(url, "https://www.sse.com.cn/")
         if not d:
             break
@@ -38,7 +39,7 @@ def fetch_sse():
         for r in rows:
             code = str(r.get("A_STOCK_CODE", "")).strip()
             name = str(r.get("COMPANY_ABBR", "")).strip()
-            if code and code.startswith("60"):
+            if code and code.startswith(prefixes):
                 out[code + ".SH"] = name
         total = int(d["pageHelp"]["total"])
         if page * 200 >= total or not rows:
@@ -77,6 +78,7 @@ def fetch_szse():
 def load_codes_exchange():
     fp = HERE + "/code_list.json"
     a = fetch_sse()
+    a.update(fetch_sse(stock_type=8, prefixes=("688", "689")))  # 科创板补漏
     b = fetch_szse()
     out = dict(a)
     out.update(b)

@@ -58,6 +58,18 @@ def compute_group(g):
     }
     f["fwd1"] = c.shift(-1) / c - 1.0
     f["fwd5"] = c.shift(-5) / c - 1.0
+    # --- Volman 概念因子（E-V1/V2/V3，公式见 EXPERIMENTS.md 预注册） ---
+    prev_high20 = hi.shift(1).rolling(20).max()  # max(high[t-20..t-1])
+    fb = ((hi > prev_high20) & (c < prev_high20)).astype(float)
+    fb[prev_high20.isna()] = np.nan
+    f["false_break20"] = fb
+    near_high60 = c / hi.rolling(60).max() - 1.0
+    vol5 = ret.rolling(5).std()
+    vol60s = ret.rolling(60).std()
+    f["pressure"] = (1.0 + near_high60) / (vol5 / vol60s + 0.2)
+    hh = hi.rolling(10).max() / hi.rolling(10).max().shift(10) - 1.0
+    ll = lo.rolling(10).min() / lo.rolling(10).min().shift(10) - 1.0
+    f["struct"] = hh + ll
     out = pd.DataFrame(f)
     out.index = g.index
     out["ret1"] = ret
@@ -95,11 +107,12 @@ def main():
     # 横截面 z（按日分组，MAD 去极值）
     zcols = ["mom5", "mom10", "mom20", "mom60", "rev1", "maxret5", "vol20",
              "vol60", "skew20", "bias20", "hl20", "amihud20", "turn20",
-             "liq", "lp"]
+             "liq", "lp", "false_break20", "pressure", "struct"]
     for col in zcols:
         df["z_" + col] = df.groupby("date")[col].transform(_robust_z)
     keep = ["code", "date", "name", "is_st", "suspended", "limit_up",
-            "ret1", "fwd1", "fwd5"] + ["z_" + c for c in zcols]
+            "ret1", "fwd1", "fwd5", "false_break20", "pressure", "struct"] \
+        + ["z_" + c for c in zcols]
     df[keep].to_parquet(OUT, index=False)
     print("features -> %s rows=%d (%.1f MB)"
           % (OUT, len(df), os.path.getsize(OUT) / 1e6))

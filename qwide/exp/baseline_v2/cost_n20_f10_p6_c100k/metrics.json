@@ -1,0 +1,39 @@
+{
+ "n": 20,
+ "freq": 10,
+ "phase": 6,
+ "limit_down_sell": true,
+ "trades": 1195,
+ "fee_total": 5975.0,
+ "turnover_total": 7162681.0,
+ "final_equity": 124171.0,
+ "ALL": {
+  "days": 387,
+  "net_ann": 0.1595,
+  "sharpe": 0.837,
+  "maxdd": -0.2457,
+  "total_ret": 0.2645
+ },
+ "IS": {
+  "days": 67,
+  "net_ann": 0.9409,
+  "sharpe": 2.598,
+  "maxdd": -0.1115,
+  "total_ret": 0.1997
+ },
+ "DEV": {
+  "days": 126,
+  "net_ann": 0.3508,
+  "sharpe": 2.24,
+  "maxdd": -0.0685,
+  "total_ret": 0.1553
+ },
+ "degrade": {
+  "days": 160,
+  "net_ann": 0.0897,
+  "sharpe": 0.506,
+  "maxdd": -0.2175,
+  "total_ret": 0.0389
+ },
+ "verdict": "PASS"
+}

@@ -1,0 +1,35 @@
+{
+ "n": 20,
+ "freq": 10,
+ "sleeves": 10,
+ "sleeve_capital": 100000.0,
+ "total_capital": 1000000.0,
+ "ALL": {
+  "days": 393,
+  "net_ann": 0.2287,
+  "sharpe": 1.25,
+  "maxdd": -0.2233,
+  "total_ret": 0.3933
+ },
+ "IS": {
+  "days": 73,
+  "net_ann": 0.6765,
+  "sharpe": 2.365,
+  "maxdd": -0.1195,
+  "total_ret": 0.1672
+ },
+ "DEV": {
+  "days": 126,
+  "net_ann": 0.5519,
+  "sharpe": 4.068,
+  "maxdd": -0.0482,
+  "total_ret": 0.247
+ },
+ "degrade": {
+  "days": 160,
+  "net_ann": 0.0344,
+  "sharpe": 0.269,
+  "maxdd": -0.2233,
+  "total_ret": 0.0132
+ }
+}

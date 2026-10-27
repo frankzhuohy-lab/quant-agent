@@ -37,9 +37,10 @@ def main():
     ap.add_argument("--tag", default="baseline_v2")
     ap.add_argument("--n", type=int, default=20)
     ap.add_argument("--freq", type=int, default=1)
+    ap.add_argument("--phase", type=int, default=0, help="调仓相位（E-R1）")
     args = ap.parse_args()
     outdir = os.path.join(HERE, "exp", args.tag,
-                          "cost_n%d_f%d" % (args.n, args.freq))
+                          "cost_n%d_f%d_p%d" % (args.n, args.freq, args.phase))
     os.makedirs(outdir, exist_ok=True)
 
     pred = pd.read_parquet(os.path.join(HERE, "exp", args.tag, "pred.parquet"))
@@ -59,7 +60,7 @@ def main():
     # 执行日 = 信号日后的下一个交易日
     exec_map = {}
     for k, t in enumerate(sig_dates):
-        if k % args.freq != 0:
+        if k % args.freq != args.phase % args.freq:
             continue
         nxt = panel_dates[panel_dates > t]
         if len(nxt):
@@ -103,6 +104,9 @@ def main():
                 if not tradable.get(code):
                     continue
                 px = open_px[code]
+                pc = sig_close.get(code)
+                if pc and px <= pc * (1 - lim_of(code, bool(g.at[code, "is_st"]))) * 1.001:
+                    continue  # E-R2：一字跌停，卖不出
                 cur_val = pos[code] * px
                 want = tgt_val if code in target else 0.0
                 if cur_val - want < max(1000.0, tgt_val * 0.05):
@@ -162,7 +166,8 @@ def main():
         "date", "equity", "n_pos", "fee_cum", "turnover_cum"])
     daily["ret"] = daily["equity"].pct_change().fillna(0.0)
     daily.to_csv(os.path.join(outdir, "daily.csv"), index=False)
-    rep = {"n": args.n, "freq": args.freq, "trades": n_trades,
+    rep = {"n": args.n, "freq": args.freq, "phase": args.phase,
+           "limit_down_sell": True, "trades": n_trades,
            "fee_total": round(fee_total, 0),
            "turnover_total": round(turn_total, 0),
            "final_equity": round(float(daily["equity"].iloc[-1]), 0)}

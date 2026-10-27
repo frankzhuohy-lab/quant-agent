@@ -38,9 +38,12 @@ def main():
     ap.add_argument("--n", type=int, default=20)
     ap.add_argument("--freq", type=int, default=1)
     ap.add_argument("--phase", type=int, default=0, help="调仓相位（E-R1）")
+    ap.add_argument("--capital", type=float, default=CAPITAL,
+                    help="本金（E-R5 子组合用 10 万，使最低佣金按真实规模生效）")
     args = ap.parse_args()
+    suffix = "" if args.capital == CAPITAL else "_c%dk" % (args.capital / 1000)
     outdir = os.path.join(HERE, "exp", args.tag,
-                          "cost_n%d_f%d_p%d" % (args.n, args.freq, args.phase))
+                          "cost_n%d_f%d_p%d%s" % (args.n, args.freq, args.phase, suffix))
     os.makedirs(outdir, exist_ok=True)
 
     pred = pd.read_parquet(os.path.join(HERE, "exp", args.tag, "pred.parquet"))
@@ -66,7 +69,7 @@ def main():
         if len(nxt):
             exec_map[nxt[0]] = t
 
-    cash, pos = CAPITAL, {}          # pos: code -> shares
+    cash, pos = args.capital, {}   # pos: code -> shares
     last_close = {}
     fee_total, turn_total, n_trades = 0.0, 0.0, 0
     records = []
